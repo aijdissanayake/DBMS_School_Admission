@@ -1,5 +1,5 @@
 <?php
-
+// use DB;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,5 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('index_test');
 });
+
+Route::get('/newApplication', ['as' => 'newApplication', 'uses' => function(){
+	return view('newApplication');
+}]);
+
+Route::post('/storeApplication1', ['as' => 'storeApplication1', 'uses' => function(Illuminate\Http\Request $req){
+
+	$name = $req['name'];
+	$nic = $req['nic'];
+
+	DB::insert('insert into past_pupils (nic, name_with_initials) values (?, ?)', [$nic, $name]);
+
+}]);
