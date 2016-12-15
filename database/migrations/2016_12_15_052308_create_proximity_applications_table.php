@@ -15,7 +15,7 @@ class CreateProximityApplicationsTable extends Migration
     {
         Schema::create('proximity_applications', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('application_id');
+            $table->integer('application_id')->unsigned();
             $table->integer('no_er_years');
             $table->integer('no_schools_nearby');
             $table->string('pref_1');
@@ -24,7 +24,7 @@ class CreateProximityApplicationsTable extends Migration
             $table->string('pref_4');
             $table->string('pref_5');
             $table->string('pref_6');
-            $table->foreign('applicantion_id')->references('id')->on('applicantions');
+            $table->foreign('application_id')->references('id')->on('applications');
             $table->foreign('pref_1')->references('reg_no')->on('schools');
             $table->foreign('pref_2')->references('reg_no')->on('schools');
             $table->foreign('pref_3')->references('reg_no')->on('schools');            

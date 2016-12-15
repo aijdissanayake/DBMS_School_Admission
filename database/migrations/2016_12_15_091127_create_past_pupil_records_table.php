@@ -14,15 +14,15 @@ class CreatePastPupilRecordsTable extends Migration
     public function up()
     {
         Schema::create('past_pupil_records', function (Blueprint $table) {
-            $table->increments('id');
             $table->string('nic',10);
             $table->string('school_reg_no');
             $table->integer('no_years');
-            $table->ineger('edu_level');
-            $table->ineger('co_curr_level');
-            $table->ineger('ex_curr_level');
+            $table->integer('edu_level');
+            $table->integer('co_curr_level');
+            $table->integer('ex_curr_level');
             $table->foreign('nic')->references('nic')->on('past_pupils');
             $table->foreign('school_reg_no')->references('reg_no')->on('schools');
+            $table->primary('nic');
             $table->timestamps();
         });
     }

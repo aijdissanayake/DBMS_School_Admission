@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateApplicantionsTable extends Migration
+class CreateApplicationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateApplicantionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('applicantions', function (Blueprint $table) {
+        Schema::create('applications', function (Blueprint $table) {
+
             $table->increments('id');
-            $table->int('year')->unsigned();
-            $table->integer('child_id');
+            $table->integer('year')->unsigned();
+            $table->integer('child_id')->unsigned();
             $table->string('applicant_id',10);
-            $table->integer('category_id');
+            $table->integer('category_id')->unsigned();
             $table->integer('total_marks')->unsigned();
             $table->timestamps();
             $table->foreign('child_id')->references('id')->on('children');
@@ -34,6 +35,6 @@ class CreateApplicantionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('applicantions');
+        Schema::dropIfExists('applications');
     }
 }

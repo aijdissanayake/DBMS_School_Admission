@@ -15,9 +15,9 @@ class CreatePastPupilApplicationsTable extends Migration
     {
         Schema::create('past_pupil_applications', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('application_id');
+            $table->integer('application_id')->unsigned();
             $table->string('school_reg_no');
-            $table->foreign('applicantion_id')->references('id')->on('applicantions');
+            $table->foreign('application_id')->references('id')->on('applications');
             $table->foreign('school_reg_no')->references('reg_no')->on('schools');
             $table->timestamps();
         });

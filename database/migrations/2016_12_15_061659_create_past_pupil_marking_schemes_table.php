@@ -15,6 +15,11 @@ class CreatePastPupilMarkingSchemesTable extends Migration
     {
         Schema::create('past_pupil_marking_schemes', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->integer('edu_mult');
+            $table->integer('co_curr_mult');
+            $table->integer('ex_curr_mult');
+            $table->integer('years_mult');
             $table->timestamps();
         });
     }
