@@ -15,6 +15,9 @@ class CreateProximityMarkingSchemesTable extends Migration
     {
         Schema::create('proximity_marking_schemes', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->integer('mult');
+            $table->integer('near_fact');
             $table->timestamps();
         });
     }
