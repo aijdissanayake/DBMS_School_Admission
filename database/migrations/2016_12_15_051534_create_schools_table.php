@@ -14,7 +14,10 @@ class CreateSchoolsTable extends Migration
     public function up()
     {
         Schema::create('schools', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('reg_no');
+            $table->string('name');
+            $table->decimal('distance',4,2);
+            $table->primary('reg_no');                                                                                          
             $table->timestamps();
         });
     }

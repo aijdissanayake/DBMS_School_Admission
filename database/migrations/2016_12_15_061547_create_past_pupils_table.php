@@ -14,8 +14,10 @@ class CreatePastPupilsTable extends Migration
     public function up()
     {
         Schema::create('past_pupils', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('nic',10);
+            $table->string('name_with_initials');
             $table->timestamps();
+            $table->primary('nic');
         });
     }
 

@@ -15,7 +15,15 @@ class CreateChildrenTable extends Migration
     {
         Schema::create('children', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('applicant_nic',10);
+            $table->string('initials',20);
+            $table->string('denoted_name');
+            $table->string('surname');
+            $table->boolean('gender');
+            $table->string('religion');
+            $table->date('dob');
             $table->timestamps();
+            $table->foreign('applicant_nic')->references('nic')->on('applicants');
         });
     }
 
