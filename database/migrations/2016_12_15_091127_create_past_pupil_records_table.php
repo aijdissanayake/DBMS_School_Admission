@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePastPupilApplicationsTable extends Migration
+class CreatePastPupilRecordsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,15 @@ class CreatePastPupilApplicationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('past_pupil_applications', function (Blueprint $table) {
+        Schema::create('past_pupil_records', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('application_id');
+            $table->string('nic',10);
             $table->string('school_reg_no');
-            $table->foreign('applicantion_id')->references('id')->on('applicantions');
+            $table->integer('no_years');
+            $table->ineger('edu_level');
+            $table->ineger('co_curr_level');
+            $table->ineger('ex_curr_level');
+            $table->foreign('nic')->references('nic')->on('past_pupils');
             $table->foreign('school_reg_no')->references('reg_no')->on('schools');
             $table->timestamps();
         });
@@ -30,6 +34,6 @@ class CreatePastPupilApplicationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('past_pupil_applications');
+        Schema::dropIfExists('past_pupil_records');
     }
 }

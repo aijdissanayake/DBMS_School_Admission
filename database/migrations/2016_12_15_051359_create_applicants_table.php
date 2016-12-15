@@ -14,7 +14,17 @@ class CreateApplicantsTable extends Migration
     public function up()
     {
         Schema::create('applicants', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('no');
+            $table->string('nic',10);
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('relationship');
+            $table->string('nationality');
+            $table->string('religion');
+            $table->string('address');
+            $table->char('tel_no',10);
+            $table->string('district');
+            $table->string('gn_division');
             $table->timestamps();
         });
     }

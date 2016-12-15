@@ -15,7 +15,15 @@ class CreateApplicantionsTable extends Migration
     {
         Schema::create('applicantions', function (Blueprint $table) {
             $table->increments('id');
+            $table->int('year')->unsigned();
+            $table->integer('child_id');
+            $table->string('applicant_id',10);
+            $table->integer('category_id');
+            $table->integer('total_marks')->unsigned();
             $table->timestamps();
+            $table->foreign('child_id')->references('id')->on('children');
+            $table->foreign('applicant_id')->references('nic')->on('applicants');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
