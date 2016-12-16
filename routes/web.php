@@ -27,7 +27,6 @@ Route::post('/storeApplication1', ['as' => 'storeApplication1', 'uses' => functi
 	DB::insert('insert into past_pupils (nic, name_with_initials) values (?, ?)', [$nic, $name]);
 
 }]);
-
 Route::get('add_pastpupil', ['as' => 'newPastPupil', 'uses' => function () {
 	return view('pastpupil.pastpupil_add');
 }]);
@@ -39,3 +38,4 @@ Route::get('add_pastpupil_record', ['as' => 'newPastPupilRecord', 'uses' => func
 Route::get('add_school', ['as' => 'newSchool', 'uses' => function () {
 	return view('school.school_add');
 }]);
+Route::get('/applicantionlist', ['as' => 'list', 'uses' =>'SchoolController@viewList']);
