@@ -4,7 +4,8 @@
 	<div class="row">
 		<div class="col-md-6">
 			<h3>Update past pupil catogory marking Scheme</h3>
-			<form>
+			<form action="{{route('addPastPupilMarkingScheme')}}" method="post">
+			{{csrf_field()}}
 			  <div class="form-group">
 			    <label for="pastPupilSchemeName">Scheme Name</label>
 			    <input type="text" class="form-control" id="pastPupilSchemeName" name="pastPupilSchemeName" placeholder="Enter name">
