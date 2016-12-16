@@ -14,6 +14,6 @@ class PastPupilController extends Controller
     	$name = $request['name'];
     	$pastpupil = new PastPupil();
     	$pastpupil->addPupil($nic, $name);
-    	return redirect(route('newPastPupil'));
+    	return redirect(route('newPastPupil'))->with('status', 'New past pupil was successfully added! You may continue adding more.');
     }
 }
