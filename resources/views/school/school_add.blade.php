@@ -9,6 +9,7 @@
 <div class="row">
 	<div class="col-md-4">		
 	<form>
+	{{csrf_field()}}
 		<div class="form-group">
 			<label for="regNum">School Registration Number</label>
 			<input name="regNum" type="text" class="form-control" id="regNum" placeholder="Reg. No.">
