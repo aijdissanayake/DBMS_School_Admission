@@ -47,3 +47,5 @@ Route::post('/addPastPupilMarkingScheme',['as'=>'addPastPupilMarkingScheme', 'us
 Route::get('add_school', ['as' => 'newSchool', 'uses' => function () {
 	return view('school.school_add');
 }]);
+
+Route::post('/addProximityMarkingScheme',['as'=>'addProximityMarkingScheme', 'uses'=>'markingSchemeController@addProximityMarkingScheme']);
