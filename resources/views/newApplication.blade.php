@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('head')
-<title>New Application</title>
+<title>New Application - 1</title>
 @endsection
 
 @section('content')
@@ -9,7 +9,7 @@
 	<h1>Application for admission to the Grade One in the year 2017</h1><br>
 	<div class="col-xs-12 col-md-6">
 		
-		<form action="" method="post">
+		<form action="{{route('newApplication2')}}" method="post">
 			{{ csrf_field() }}
 			<div class="form-group">
 				<label for="category">Category Applied for:</label>
@@ -128,7 +128,7 @@
 
 
 			<div class="form-group">
-			<label for="perm_address">Permanent Address</label>
+				<label for="perm_address">Permanent Address</label>
 				<input type="text" class="form-control" id="perm_address" name="perm_address" placeholder="eg: 38/4, Saranankara Avenue, Bambalapitiya">
 			</div>
 
@@ -168,6 +168,56 @@
 				</select>
 			</div>
 
+			<br>
+			<h3>School Preferences</h3><br>
+			<p>Please select 6 schools in descending order of preference.</p>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="form-group">
+						<label for="pref_1">1st Preference</label>
+						<select class="form-control" id="pref_1">
+							<option>dummy</option>
+							<option>dummy</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="pref_2">2nd Preference</label>
+						<select class="form-control" id="pref_2">
+							<option>dummy</option>
+							<option>dummy</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="pref_3">3rd Preference</label>
+						<select class="form-control" id="pref_3">
+							<option>dummy</option>
+							<option>dummy</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="pref_4">4th Preference</label>
+						<select class="form-control" id="pref_4">
+							<option>dummy</option>
+							<option>dummy</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="pref_5">5th Preference</label>
+						<select class="form-control" id="pref_5">
+							<option>dummy</option>
+							<option>dummy</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="pref_6">6th Preference</label>
+						<select class="form-control" id="pref_6">
+							<option>dummy</option>
+							<option>dummy</option>
+						</select>
+					</div>
+				</div>
+			</div>
 
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
