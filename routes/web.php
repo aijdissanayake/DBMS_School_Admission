@@ -27,3 +27,5 @@ Route::post('/storeApplication1', ['as' => 'storeApplication1', 'uses' => functi
 	DB::insert('insert into past_pupils (nic, name_with_initials) values (?, ?)', [$nic, $name]);
 
 }]);
+
+Route::get('/applicantionlist', ['as' => 'list', 'uses' =>'SchoolController@viewList']);
