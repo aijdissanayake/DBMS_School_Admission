@@ -87,12 +87,12 @@
 			<br>
 
 			<div class="form-group">
-				<label for="">Name in full</label>
+				<label for="applicant_name">Name in full</label>
 				<input type="text" class="form-control" id="applicant_name" name="applicant_name" placeholder="eg: Mudiyanselage Randunu Gunapala">
 			</div>
 
 			<div class="form-group">
-				<label for="">Name with initials</label>
+				<label for="applicant_name_initials">Name with initials</label>
 				<input type="text" class="form-control" id="applicant_name_initials" name="applicant_name_initials" placeholder="eg: M.R. Gunapala">
 			</div>
 
