@@ -6,5 +6,12 @@ use Illuminate\Http\Request;
 
 class markingSchemeController extends Controller
 {
-    //
+    
+    public function addProximityMarkingScheme(){
+    	//
+    }
+
+    public function addPastPupilMarkingScheme(){
+   		// 	
+    }
 }
