@@ -9,6 +9,7 @@
 <div class="row">
 	<div class="col-md-4">		
 	<form>
+	{{csrf_field()}}
 		<div class="form-group">
 			<label for="nicNum">Registered NIC Number</label>
 			<input name="nicNum" type="text" class="form-control" id="nicNum" placeholder="NIC No.">
