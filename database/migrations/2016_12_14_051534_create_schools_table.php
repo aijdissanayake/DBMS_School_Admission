@@ -17,7 +17,8 @@ class CreateSchoolsTable extends Migration
             $table->string('reg_no');
             $table->string('name');
             $table->decimal('distance',4,2);
-            $table->primary('reg_no');                                                                                          
+            $table->primary('reg_no');
+            $table->string('password');                                                                                          
             $table->timestamps();
         });
     }

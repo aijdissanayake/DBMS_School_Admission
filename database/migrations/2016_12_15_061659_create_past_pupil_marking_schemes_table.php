@@ -20,6 +20,7 @@ class CreatePastPupilMarkingSchemesTable extends Migration
             $table->integer('co_curr_mult');
             $table->integer('ex_curr_mult');
             $table->integer('years_mult');
+            $table->boolean('active');
             $table->timestamps();
         });
     }
