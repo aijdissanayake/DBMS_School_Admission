@@ -18,6 +18,10 @@
 			<label for="name">Name of the School</label>
 			<input name="name" type="text" class="form-control" id="name" placeholder="Name">
 		</div>
+		<div class="form-group">
+			<label for="password">Password</label>
+			<input name="password" type="text" class="form-control" id="password" placeholder="Set a password">
+		</div>
 		<button type="submit" class="btn btn-default">Add New School</button>
 	</form>	
 </div>
