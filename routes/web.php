@@ -39,7 +39,15 @@ Route::get('add_pastpupil_record', ['as' => 'newPastPupilRecord', 'uses' => func
 	return view('pastpupil.pastpupil_record_add');
 }]);
 
+
+Route::get('/applicantionlist', ['as' => 'list', 'uses' =>'SchoolController@viewList']);
+
+Route::get('/addMarkingScheme',['as'=>'addMarkingScheme','uses'=>function(){
+	return view('addMarkingScheme');
+}]);
+
+Route::post('/addPastPupilMarkingScheme',['as'=>'addPastPupilMarkingScheme', 'uses'=>'markingSchemeController@addPastPupilMarkingScheme']);
+
 Route::get('add_school', ['as' => 'newSchool', 'uses' => function () {
 	return view('school.school_add');
 }]);
-Route::get('/applicantionlist', ['as' => 'list', 'uses' =>'SchoolController@viewList']);

@@ -18,6 +18,8 @@ class CreateProximityMarkingSchemesTable extends Migration
             $table->string('name');
             $table->integer('mult');
             $table->integer('near_fact');
+            $table->integer('year_mult');
+            $table->boolean('active');
             $table->timestamps();
         });
     }
