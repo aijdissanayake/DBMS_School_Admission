@@ -33,7 +33,7 @@
 		</div>
 		<div class="col-md-6">
 			<h3>Upadate proximity catogory marking Scheme</h3>
-			<form>
+			<form action="{{route('addProximityMarkingScheme')}}" method="post">
 			  <div class="form-group">
 			    <label for="proximitySchemeName">Scheme Name</label>
 			    <input type="text" class="form-control" id="proximitySchemeName" name="proximitySchemeName" placeholder="Enter name">
