@@ -10,6 +10,5 @@ class PastPupil extends Model
 {
     public function addPupil($nic, $name){
     	DB::insert('insert into past_pupils (nic, name_with_initials) values (?, ?)', [$nic, $name]);
-
     }
 }
