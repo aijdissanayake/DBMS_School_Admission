@@ -19,6 +19,10 @@ Route::get('/newApplication', ['as' => 'newApplication', 'uses' => function(){
 	return view('newApplication');
 }]);
 
+Route::post('/newApplication2', ['as' => 'newApplication2', 'uses' => function(){
+	return view('newApplication2');
+}]);
+
 Route::post('/storeApplication1', ['as' => 'storeApplication1', 'uses' => function(Illuminate\Http\Request $req){
 
 	$name = $req['name'];
@@ -47,3 +51,5 @@ Route::post('/addPastPupilMarkingScheme',['as'=>'addPastPupilMarkingScheme', 'us
 Route::get('add_school', ['as' => 'newSchool', 'uses' => function () {
 	return view('school.school_add');
 }]);
+
+Route::post('/addProximityMarkingScheme',['as'=>'addProximityMarkingScheme', 'uses'=>'markingSchemeController@addProximityMarkingScheme']);
