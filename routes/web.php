@@ -29,3 +29,9 @@ Route::post('/storeApplication1', ['as' => 'storeApplication1', 'uses' => functi
 }]);
 
 Route::get('/applicantionlist', ['as' => 'list', 'uses' =>'SchoolController@viewList']);
+
+Route::get('/addMarkingScheme',['as'=>'addMarkingScheme','uses'=>function(){
+	return view('addMarkingScheme');
+}]);
+
+Route::post('/addPastPupilMarkingScheme',['as'=>'addPastPupilMarkingScheme', 'uses'=>'markingSchemeController@addPastPupilMarkingScheme']);
