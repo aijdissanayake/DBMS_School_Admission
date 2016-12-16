@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/pastpupil', function () {
+    return view('PastPupil.pastpupil');
+});
+Route::post('/test',['as'=>'t', 'uses'=>'PastPupilController@addNew']);
