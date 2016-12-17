@@ -8,7 +8,7 @@
 	<h1>New Past Pupil Registration</h1>
 	<div class="row">
 		<div class="col-md-4">
-			<form>
+			<form method="post" action="{{route('pastpupilAdd')}}">
 			{{csrf_field()}}
 		  		<div class="form-group">
 		    		<label for="nic">NIC Number</label>
@@ -22,4 +22,9 @@
 			</form>	
 		</div>
 	</div>
+	@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+	@endif
 @endsection
