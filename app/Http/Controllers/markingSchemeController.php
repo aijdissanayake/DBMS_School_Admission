@@ -13,12 +13,14 @@ class markingSchemeController extends Controller
     	//
     	$proximityMarking = new ProximityMarkingScheme();
    		$proximityMarking->addMarkingScheme($request);
-   		return view('addMarkingScheme');
+   		
+   		return redirect('addMarkingScheme')->with('status', 'Scheme updated!');
     }
 
     public function addPastPupilMarkingScheme(Request $request){
-   		$pastPupilMarking = new ProximityMarkingScheme();
+   		$pastPupilMarking = new PastPupilMarkingScheme();
    		$pastPupilMarking->addMarkingScheme($request);
-   		return view('addMarkingScheme');
+   		
+   		return redirect('addMarkingScheme')->with('status', 'Scheme updated!');
     }
 }

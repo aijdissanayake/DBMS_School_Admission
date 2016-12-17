@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
 use App\School;
 
 class SchoolController extends Controller
@@ -22,5 +22,14 @@ class SchoolController extends Controller
     		->with('past_pupil_applications',$past_pupil_applications)
     		->with('proximity_applications',$proximity_applications)
     		->with('school_details',$school_details);
+    }
+
+    public function addNew(Request $request) {
+        $regNum = $request['regNum'];
+        $name = $request['name'];
+        $password = Hash::make($request['password']);
+        $school = new School();
+        $school->register($regNum, $name, $password);
+        return redirect(route('newSchool'))->with('status', 'New school has been successfully added! You may continue adding more.');
     }
 }

@@ -30,4 +30,8 @@ class School extends Model
 			return $details;
 
 	}
+
+	public function register($regNum, $name, $password) {
+		DB::insert('INSERT INTO schools (reg_no, name, password) VALUES (?, ?, ?)', [$regNum, $name, $password]);
+	}
 }
