@@ -43,6 +43,7 @@ Route::get('add_pastpupil_record', ['as' => 'newPastPupilRecord', 'uses' => func
 	return view('pastpupil.pastpupil_record_add');
 }]);
 
+Route::post('pastpupil_record_added', 'PastPupilController@addNewRecord')->name('pastpupilRecordAdd');
 
 Route::get('/applicantionlist', ['as' => 'list', 'uses' =>'SchoolController@viewList']);
 
