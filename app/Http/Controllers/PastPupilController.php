@@ -14,7 +14,7 @@ class PastPupilController extends Controller
     	$name = $request['name'];
     	$pastpupil = new PastPupil();
     	$pastpupil->addPupil($nic, $name);
-    	return redirect(route('newPastPupil'))->with('status', 'New past pupil was successfully added! You may continue adding more.');
+    	return redirect(route('newPastPupil'))->with('status', 'New past pupil has been successfully added! You may continue adding more.');
     }
 
     public function addNewRecord(Request $request) {
@@ -26,6 +26,6 @@ class PastPupilController extends Controller
     	$exCurLevel = (int)$request['extra_curricular_level'];
     	$pastpupilRecord = new PastPupilRecord();
     	$pastpupilRecord->addRecord($nic, $regNum, $years, $eduLevel, $coCurLevel, $exCurLevel);
-    	return redirect(route('newPastPupilRecord'))->with('status', 'Past pupil records were successfully added! You may continue adding more.');
+    	return redirect(route('newPastPupilRecord'))->with('status', 'Past pupil records have been successfully added! You may continue adding more.');
     }
 }
