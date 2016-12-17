@@ -24,6 +24,11 @@
 		</div>
 		<button type="submit" class="btn btn-default">Add New School</button>
 	</form>	
+	@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+	@endif
 </div>
 </div>
 @endsection
