@@ -8,7 +8,7 @@
 <h1>New School Registration</h1>
 <div class="row">
 	<div class="col-md-4">		
-	<form>
+	<form method="post", action="{{route('schooldAdd')}}">
 	{{csrf_field()}}
 		<div class="form-group">
 			<label for="regNum">School Registration Number</label>
@@ -24,6 +24,11 @@
 		</div>
 		<button type="submit" class="btn btn-default">Add New School</button>
 	</form>	
+	@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+	@endif
 </div>
 </div>
 @endsection
