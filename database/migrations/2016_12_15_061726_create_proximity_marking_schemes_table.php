@@ -19,6 +19,7 @@ class CreateProximityMarkingSchemesTable extends Migration
             $table->integer('mult');
             $table->integer('near_fact');
             $table->integer('year_mult');
+            $table->integer('school_penalty');
             $table->boolean('active');
             $table->timestamps();
         });

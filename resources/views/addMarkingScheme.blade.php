@@ -23,7 +23,7 @@
 			    <input type="number" class="form-control" id="ex_curr_mul" name="ex_curr_mul" placeholder="Enter value">
 			  </div>
 			  <div class="form-group">
-			    <label for="pastYears">Year multiplier</label>
+			    <label for="pastYears">Duration multiplier</label>
 			    <input type="number" class="form-control" id="pastYears" name="years_mult" placeholder="Enter value">
 			  </div>
 
@@ -48,20 +48,23 @@
 			    <input type="number" class="form-control" id="distance_factor" name="distance_factor" placeholder="Enter value">
 			  </div>
 			  <div class="form-group">
-			    <label for="er_years">Year multiplier</label>
+			    <label for="er_years">Duration multiplier</label>
 			    <input type="number" class="form-control" id="er_years" name="er_years" placeholder="Enter value">
+			  </div>
+			  <div class="form-group">
+			    <label for="school_penalty">Nearby school penalty</label>
+			    <input type="number" class="form-control" id="school_penalty" name="school_penalty" placeholder="Enter value">
 			  </div>
 
 			  
 			  <button type="submit" class="btn btn-default pull-right">Submit</button>
 			</form>
 		</div>
-	</div>
-
-	
 		@if (session('status'))
-		    <div class="alert alert-success">
+		    <div class="alert alert-success ">
 		        {{ session('status') }}
 		    </div>
 		@endif
+		</div>
+
 @endsection

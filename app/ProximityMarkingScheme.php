@@ -14,7 +14,8 @@ class ProximityMarkingScheme extends Model
    		$distance_mult = $req['distance_mul'];
    		$distance_factor = $req['distance_factor'];
    		$years_mult = $req['er_years'];
+   		$school_penalty = $req['er_years'];
    		DB::update('update proximity_marking_schemes set active=0');
-   		DB::insert('insert into proximity_marking_schemes (name,mult,near_fact,year_mult,active) values(?,?,?,?,1)',[$name,$distance_mult,$distance_factor,$years_mult]);
+   		DB::insert('insert into proximity_marking_schemes (name,mult,near_fact,year_mult,school_penalty,active) values(?,?,?,?,?,1)',[$name,$distance_mult,$distance_factor,$years_mult,$school_penalty]);
    }
 }

@@ -18,6 +18,7 @@ class CreateProximityApplicationsTable extends Migration
             $table->integer('application_id')->unsigned();
             $table->integer('no_er_years');
             $table->integer('no_schools_nearby');
+            $table->decimal('distance');
             $table->foreign('application_id')->references('id')->on('applications');
             $table->timestamps();
         });
