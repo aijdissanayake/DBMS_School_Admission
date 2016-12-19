@@ -34,4 +34,10 @@ class School extends Model
 	public function register($regNum, $name, $password) {
 		DB::insert('INSERT INTO schools (reg_no, name, password) VALUES (?, ?, ?)', [$regNum, $name, $password]);
 	}
+
+	public function searchSchoolApplications($regNo, $childName, $field){
+
+		$guess = "%".$childName."%";
+		DB::select('SELECT initials, surname,denoted_name, total_marks FROM applications INNER JOIN children ON applications.child_id = children.id where school_reg_no = ? AND $field LIKE $guess LIMIT 10', [$regNo]);
+	}
 }
