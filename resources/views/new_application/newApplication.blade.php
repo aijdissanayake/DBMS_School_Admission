@@ -6,8 +6,8 @@
 
 @section('content')
 <div class="row">
-	<h1>Application for admission to the Grade One in the year 2017</h1><br>
-	<div class="col-xs-12 col-md-6">
+	<h1 style="text-align: center">Application for admission to the Grade One in the year 2017</h1><br>
+	<div class="col-xs-12 col-md-6 col-md-offset-3">
 		
 		<form action="{{route('newApplication2')}}" method="post">
 			{{ csrf_field() }}
