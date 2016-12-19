@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/newApplication', ['as' => 'newApplication', 'uses' => function(){
-	return view('newApplication');
+	return view('new_application.newApplication');
 }]);
 
 Route::post('/newApplication2', ['as' => 'newApplication2', 'uses' => function(){
