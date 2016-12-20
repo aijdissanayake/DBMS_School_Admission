@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\PastPupilMarkingScheme;
 use App\ProximityMarkingScheme;
+use Illuminate\Support\Facades\DB;
 
 class markingSchemeController extends Controller
 {
@@ -22,5 +23,11 @@ class markingSchemeController extends Controller
    		$pastPupilMarking->addMarkingScheme($request);
    		
    		return redirect('addMarkingScheme')->with('status', 'Scheme updated!');
+    }
+
+    public function viewMarkingSchemeTab(){
+      $pastPupil = DB::select('select * from past_pupil_marking_schemes where active=1');
+      $proximity = DB::select('select * from proximity_marking_schemes where active=1');
+      return view('addMarkingScheme',['pastPupilScheme' => $pastPupil ]);
     }
 }
