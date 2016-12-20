@@ -23,7 +23,8 @@ class Application extends Model
 
     public static function getCategory($id){
 
-        $category_id = DB::select('SELECT category_id from applications WHERE id = ?',[$id])[0]->category_id;
+        $category_id = DB::select('SELECT category_id from applications WHERE id = ?',[$id]);
+        $category_id = $category_id[0]->category_id;
         return $category_id;
     }
 }

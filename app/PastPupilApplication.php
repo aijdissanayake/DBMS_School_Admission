@@ -21,7 +21,7 @@ class PastPupilApplication extends Model
     }
 
 public static function findApplication($pp_app_id){
-	$success = DB::select("SELECT * FROM past_pupil_applications WHERE id=?",[$pp_app_id]);
+	$success = DB::select("SELECT * FROM past_pupil_applications WHERE application_id=?",[$pp_app_id]);
 
 	if ($success){
 		return $success[0];

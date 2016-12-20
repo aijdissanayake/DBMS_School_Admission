@@ -157,14 +157,17 @@ class ApplicationController extends Controller
 
 		$id = $request['results'];
 		$category_id = Application::getCategory($id);
-		echo $category_id;
+		// dd($category_id);
 
 		// if($category_id){
 			if ($category_id == 2) {
 				return redirect()->route('viewPxApplication', ['id' => $id]);
 			}
-			else{
+			elseif ($category_id==1){
 				return redirect()->route('viewPPApplication', ['id' => $id]);
+			}
+			else{
+				echo $category_id;
 			}
 		// }
 

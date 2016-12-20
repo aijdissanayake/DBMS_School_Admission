@@ -10,9 +10,11 @@
 
 
 <div class="row">
-	<div class="col-sm-3">
+	<div class="col-sm-12">
 	<h2 >{{$school_details->name}}</h2>
 	</div>
+</div>
+<div class="row">
 	<div class="col-sm-9">
 		<div class="row">
 			<br><br>
