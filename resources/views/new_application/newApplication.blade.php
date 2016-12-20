@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('head')
-<title>New Application - 1</title>
+<title>New Application</title>
 @endsection
 
 @section('content')
@@ -27,8 +27,8 @@
 			<div class="form-group">
 				<label for="category">Application Category:</label>
 				<select class="form-control" id="category" name="category">
-					<option value="0">Past pupil</option>
-					<option value="1">Proximity</option>
+					<option value="1">Past pupil</option>
+					<option value="2">Proximity</option>
 				</select>
 			</div>
 
@@ -63,7 +63,7 @@
 				<input type="date" name="dob" id="dob" class="form-control">
 			</div>
 
-			<div class=form-group form-inline"">
+			<!-- <div class=form-group form-inline"">
 				<label for="age">Age on 31st January 2017</label>
 				<div class="row" name="age">
 					<div class="col-xs-4">
@@ -79,7 +79,7 @@
 						<input type="" name="dob_days" class="form-control">
 					</div>				
 				</div>
-			</div>
+			</div> -->
 
 			<div class="form-group">
 				<label for="child_religion">Religion</label>

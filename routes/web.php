@@ -12,8 +12,41 @@
 */
 
 Route::get('/', function () {
-	return view('index_test');
+	return view('login');
 });
+
+//Admin Routes
+
+Route::get('/viewPxApplication/{application_id}',['as'=>'viewPxApplication', 'uses'=>'ApplicationController@viewPxApplication']);
+
+Route::get('add_pastpupil', ['as' => 'newPastPupil', 'uses' => function () {
+	return view('pastpupil.pastpupil_add');
+}]);
+
+Route::get('add_school', ['as' => 'newSchool', 'uses' => function () {
+	return view('school.school_add');
+}]);
+
+Route::post('school_added', 'SchoolController@addNew')->name('schooldAdd');
+
+Route::get('add_pastpupil_record', ['as' => 'newPastPupilRecord', 'uses' => function () {
+	return view('pastpupil.pastpupil_record_add');
+}]);
+
+Route::post('pastpupil_added', 'PastPupilController@addNew')->name('pastpupilAdd');
+
+Route::post('pastpupil_record_added', 'PastPupilController@addNewRecord')->name('pastpupilRecordAdd');
+
+Route::get('/addMarkingScheme',['as'=>'addMarkingScheme','uses'=>function(){
+	return view('addMarkingScheme');
+}]);
+
+Route::post('/addPastPupilMarkingScheme',['as'=>'addPastPupilMarkingScheme', 'uses'=>'markingSchemeController@addPastPupilMarkingScheme']);
+
+Route::post('/addProximityMarkingScheme',['as'=>'addProximityMarkingScheme', 'uses'=>'markingSchemeController@addProximityMarkingScheme']);
+
+
+//Data Operator Routes
 
 Route::get('/newApplication', ['as' => 'newApplication', 'uses' => function(){
 	$schools = new App\School();
@@ -24,47 +57,16 @@ Route::get('/newApplication', ['as' => 'newApplication', 'uses' => function(){
 
 Route::post('/newApplication2', ['as' => 'newApplication2', 'uses' => 'ApplicationController@addNewApplication']);
 
-Route::post('/storeApplication1', ['as' => 'storeApplication1', 'uses' => function(Illuminate\Http\Request $req){
+Route::post('/storePxApplication{application_id}', ['as' => 'storeApplication2', 'uses' => 'ApplicationController@addNewProximityApplication']);
 
-	$name = $req['name'];
-	$nic = $req['nic'];
+Route::get('/viewPPApplication/{application_id}',['as'=>'viewPPApplication', 'uses'=>'ApplicationController@viewPastPupilApplication']);
 
-	DB::insert('insert into past_pupils (nic, name_with_initials) values (?, ?)', [$nic, $name]);
-
-}]);
-
-Route::get('add_pastpupil', ['as' => 'newPastPupil', 'uses' => function () {
-	return view('pastpupil.pastpupil_add');
-}]);
-
-Route::post('pastpupil_added', 'PastPupilController@addNew')->name('pastpupilAdd');
-
-
-Route::get('add_pastpupil_record', ['as' => 'newPastPupilRecord', 'uses' => function () {
-	return view('pastpupil.pastpupil_record_add');
-}]);
-
-Route::post('pastpupil_record_added', 'PastPupilController@addNewRecord')->name('pastpupilRecordAdd');
+Route::post('/storePPApplication/{application_id}', ['as' => 'storeApplication1', 'uses' => 'ApplicationController@addNewPastPupilApplication']);
 
 Route::get('/applicantionlist', ['as' => 'list', 'uses' =>'SchoolController@viewList']);
 
-Route::get('/addMarkingScheme',['as'=>'addMarkingScheme','uses'=>function(){
-	return view('addMarkingScheme');
-}]);
-
-Route::post('/addPastPupilMarkingScheme',['as'=>'addPastPupilMarkingScheme', 'uses'=>'markingSchemeController@addPastPupilMarkingScheme']);
-
-Route::get('add_school', ['as' => 'newSchool', 'uses' => function () {
-	return view('school.school_add');
-}]);
-
-Route::post('school_added', 'SchoolController@addNew')->name('schooldAdd');
-
-Route::post('/addProximityMarkingScheme',['as'=>'addProximityMarkingScheme', 'uses'=>'markingSchemeController@addProximityMarkingScheme']);
+Route::get('/school/searchApps', 'SchoolController@searchSchoolApps')->name('searchSchoolApps');
 
 Route::get('/applicationsHome', ['as' => 'applications', 'uses' => function () {
 	return view('applications');
 }]);
-
-Route::get('/school/searchApps', 'SchoolController@searchSchoolApps')->name('searchSchoolApps');
-
