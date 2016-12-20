@@ -10,9 +10,11 @@
 
 
 <div class="row">
-	<div class="col-sm-3">
+	<div class="col-sm-12">
 	<h2 >{{$school_details->name}}</h2>
 	</div>
+</div>
+<div class="row">
 	<div class="col-sm-9">
 		<div class="row">
 			<br><br>
@@ -21,8 +23,8 @@
 			<div class="col-sm-5">
 			<div class="form-group">
                 <select type="text" class="form-control" placeholder="Search" id="field" >
-                	<option value="denoted_name">first Name</option>
-                	<option value="surname" selected>Last Name</option>
+                	<option value="denoted_name">First Name</option>
+                	<option value="surname" selected="">Last Name</option>
                 </select>
             </div>
             </div>

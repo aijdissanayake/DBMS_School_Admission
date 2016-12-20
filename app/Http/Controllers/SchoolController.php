@@ -12,7 +12,7 @@ class SchoolController extends Controller
 {
     public function viewList(){
 
-    	$regNo = '00001RC';
+    	$regNo = "477";
     	//create school instance
     	$school = new School();
     	//call methods in school.php model
@@ -39,7 +39,7 @@ class SchoolController extends Controller
 
         $field = $request['field'];
         $childName = $request['childName'];
-        $regNo = '00001RC';
+        $regNo = '477';
         $school = new School();
 
         $searchResults = $school->searchSchoolApps($regNo, $childName, $field);
