@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-	return view('index_test');
+	return view('login');
 });
 
 //Admin Routes
