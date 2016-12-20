@@ -13,8 +13,10 @@
 		<h3>Details of Past Pupil</h3>
 
 		@if ($errors)
+		@foreach ($errors as $error)
 		<br>
-			<p style="color: red">{{$errors}}</p>
+			<p style="color: red">{{$error}}</p>
+			@endforeach
 		@endif
 		<br>
 		<form method="post" action="{{route('storeApplication1', [$application_id])}}">
