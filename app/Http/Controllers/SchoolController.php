@@ -42,10 +42,20 @@ class SchoolController extends Controller
         $regNo = '00001RC';
         $school = new School();
 
+        try{
+
         $searchResults = $school->searchSchoolApps($regNo, $childName, $field);
+        $success = 'success';
+
+        }
+
+        catch (Exception $e) {
+
+            $success =  $e->getMessage();
+        }
 
         return response()->json([
-                'sessions' => 'success'
+                'sessions' => $success
             ]);
     }
 }
