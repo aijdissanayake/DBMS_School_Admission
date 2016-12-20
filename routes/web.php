@@ -11,9 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-	return view('login');
+Route::get('/', 'HomeController@home');
+
+Route::get('login', function(){
+	return view('auth.login');
 });
+
+Route::post('auth', 'HomeController@login');
 
 //Admin Routes
 
