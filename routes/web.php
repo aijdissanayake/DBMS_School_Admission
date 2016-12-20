@@ -16,12 +16,13 @@ Route::get('/', function () {
 });
 
 Route::get('/newApplication', ['as' => 'newApplication', 'uses' => function(){
-	return view('newApplication');
+	$schools = new App\School();
+	$schools = $schools->getSchools();
+	$year = date("Y")+1;
+	return view('new_application.newApplication', compact('schools', 'year'));
 }]);
 
-Route::post('/newApplication2', ['as' => 'newApplication2', 'uses' => function(){
-	return view('newApplication2');
-}]);
+Route::post('/newApplication2', ['as' => 'newApplication2', 'uses' => 'ApplicationController@addNewApplication']);
 
 Route::post('/storeApplication1', ['as' => 'storeApplication1', 'uses' => function(Illuminate\Http\Request $req){
 

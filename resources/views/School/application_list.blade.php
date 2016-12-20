@@ -2,11 +2,31 @@
 
 @section('head')
 <title>Applications</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="/js/school.js"></script>
 @endsection
 
 @section('content')
 <div class="row">
-	<h2 style="padding-left: 1%">{{$school_details->name}}</h2>
+	<div class="col-sm-8">
+	<h2 >{{$school_details->name}}</h2>
+	</div>
+	<div class="col-sm-4">
+	<form>
+
+			<div class="form-group">
+                <select type="text" class="form-control" placeholder="Search" id="field">
+                	<option value="denoted_name">first Name</option>
+                	<option value="surname" selected>Last Name</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" id="search">
+            </div>
+     </form>
+     </div>
+</div>
+<div class="row">
 		<div class="col-sm-6">
 			<h3>Past Pupil Applications</h3>
 			@if(count($past_pupil_applications))
