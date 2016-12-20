@@ -71,12 +71,33 @@
 			<div class="col-md-6">
 				<div class="panel panel-default">
 				  <div class="panel-heading">
-				    <h3 class="panel-title">Panel title</h3>
+				    <h3 class="panel-title">Current Scheme</h3>
 				  </div>
 				  <div class="panel-body">
-				    Panel content
+				    <ul class="list-group">
+					  <li class="list-group-item">
+					    <span class="badge">14</span>
+					    Scheme name
+					  </li>
+					  <li class="list-group-item">
+					    <span class="badge">14</span>
+					    Education level multiplier 
+					  </li>
+					  <li class="list-group-item">
+					    <span class="badge">14</span>
+					    Co curricular level multiplier
+					  </li>
+					  <li class="list-group-item">
+					    <span class="badge">14</span>
+					    Extra curricular level multiplier
+					  </li>
+					  <li class="list-group-item">
+					    <span class="badge">14</span>
+					    Duration multiplier
+					  </li>
+					</ul>
 				  </div>
-				</div
+				</div>
 			</div>
 
 		</div>
