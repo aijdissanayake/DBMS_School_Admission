@@ -173,4 +173,10 @@ class ApplicationController extends Controller
 		// }
 
 	}
+
+	public function viewAllApp() {
+		$app = new Application();
+		$allApps = $app::viewAllApp();
+		return View::make('new_application.viewAllApplications', $allApps);
+	}
 }
