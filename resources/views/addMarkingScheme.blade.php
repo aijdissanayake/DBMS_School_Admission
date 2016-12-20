@@ -32,7 +32,7 @@
 			</form>
 		</div>
 		<div class="col-md-6">
-			<h3>Upadate proximity catogory marking Scheme</h3>
+			<h3>Update proximity catogory marking Scheme</h3>
 			<form action="{{route('addProximityMarkingScheme')}}" method="post">
 			{{csrf_field()}}
 			  <div class="form-group">
