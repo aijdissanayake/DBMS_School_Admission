@@ -7,8 +7,8 @@ use DB;
 
 class ProximityApplication extends Model
 {
-	public static function findApplication($px_app_id){
-		$success = DB::select("SELECT * FROM proximity_applications WHERE application_id=?",[$px_app_id]);
+	public static function findApplication($app_id){
+		$success = DB::select("SELECT * FROM all_proximity_application_details WHERE application_id=?",[$app_id]);
 
 		if ($success){
 			return $success[0];

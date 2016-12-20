@@ -55,7 +55,7 @@ class School extends Model
 
 		}
 
-		else{
+		elseif($field = "denoted_name"){
 
 			$applications = DB::select('SELECT initials, surname,denoted_name, total_marks FROM applications INNER JOIN children ON applications.child_id = children.id where school_reg_no = ? AND denoted_name LIKE ? LIMIT 10', [$regNo ,$guess]);
 

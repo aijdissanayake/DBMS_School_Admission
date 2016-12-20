@@ -127,8 +127,8 @@ class ApplicationController extends Controller
 		
 	}
 
-	public function viewPastPupilApplication($pp_app_id){
-		$pp_application = PastPupilApplication::findApplication($pp_app_id);
+	public function viewPastPupilApplication($app_id){
+		$pp_application = PastPupilApplication::findApplication($app_id);
 
 		if ($pp_application){
 			return view('new_application.viewPPApplication', compact('pp_application'));
@@ -140,8 +140,8 @@ class ApplicationController extends Controller
 		
 	}
 
-	public function viewPxApplication($px_app_id){
-		$px_application = ProximityApplication::findApplication($px_app_id);
+	public function viewPxApplication($app_id){
+		$px_application = ProximityApplication::findApplication($app_id);
 
 		if ($px_application){
 			return view('new_application.viewPxApplication', compact('px_application'));
@@ -157,9 +157,8 @@ class ApplicationController extends Controller
 
 		$id = $request['results'];
 		$category_id = Application::getCategory($id);
-		// dd($category_id);
 
-		// if($category_id){
+		if($category_id){
 			if ($category_id == 2) {
 				return redirect()->route('viewPxApplication', ['id' => $id]);
 			}
@@ -169,11 +168,11 @@ class ApplicationController extends Controller
 			else{
 				echo $category_id;
 			}
-		// }
+		}
 
-		// else{
-		// 	return view('errors.404');
-		// }
+		else{
+			return view('errors.404');
+		}
 
 	}
 }

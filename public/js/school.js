@@ -5,6 +5,7 @@ $(document).ready(function(){
 
 		var childName = this.value;
 		var field = $('#field').val();
+		console.log(field);
 		$('#results').empty();
 
 		if(this.value){
@@ -26,7 +27,7 @@ $(document).ready(function(){
 						 console.log(results[i]['name']);
 
 						 var result = "<option value='"+results[i]['id']+"'>"+results[i]['name']+"</option>";
-						 
+
 						 $('#results').append(result);
 
 

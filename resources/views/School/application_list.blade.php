@@ -23,8 +23,8 @@
 			<div class="col-sm-5">
 			<div class="form-group">
                 <select type="text" class="form-control" placeholder="Search" id="field" >
-                	<option value="denoted_name">first Name</option>
-                	<option value="surname" selected>Last Name</option>
+                	<option value="denoted_name">First Name</option>
+                	<option value="surname" selected="">Last Name</option>
                 </select>
             </div>
             </div>
