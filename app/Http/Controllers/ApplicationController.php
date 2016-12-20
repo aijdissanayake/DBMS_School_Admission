@@ -121,7 +121,7 @@ class ApplicationController extends Controller
 			return redirect()->route('viewPxApplication', $px_app_id);
 		}
 		else{
-			$errors = array("Something went wrong. Please re-check the details you entered. If you think this is a system fault, please contact the development team.");
+			$errors = array("Something went wrong. Please re-check the details you entered. If you think this is a system fault, please contact the development team.")	;
 			return view('new_application.proximityApplication', compact('application_id', 'errors'));
 		}
 		
