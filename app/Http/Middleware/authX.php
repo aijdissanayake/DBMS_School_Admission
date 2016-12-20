@@ -16,6 +16,14 @@ class authX
      */
     public function handle($request, Closure $next, $guard=null)
     {
+        if (Auth::check()){
+            return $next($request);
+        }
+        else{
+            return redirect()->route('login');
+        }
+
+        return $next($request);
         
     }
 }

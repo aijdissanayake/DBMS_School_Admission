@@ -19,14 +19,4 @@ class HomeController extends Controller
     	// }
     }
 
-    public function login(Request $request){
-    	$user = new User();
-
-    	$user->username = $request['username'];
-    	$user->password = $request['password'];
-
-    	Auth::login($user);
-
-    	return redirect('/');
-    }
 }
