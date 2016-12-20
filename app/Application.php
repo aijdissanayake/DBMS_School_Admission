@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Application extends Model
 {
-    public function createApplication($nic, $regNum, $years, $eduLevel, $coCurLevel, $exCurLevel) {
-    	DB::insert('INSERT INTO past_pupil_records (nic, school_reg_no, no_years, edu_level, co_curr_level, ex_curr_level) VALUES (?, ?, ?, ?, ?, ?)', [$nic, $regNum, $years, $eduLevel, $coCurLevel, $exCurLevel]);
+    public function createApplication() {
+    	DB::insert('INSERT INTO applications (year, child_id, applicant_id, school_reg_no, pref_1, pref_2, pref_3, pref_4, pref_5, pref_6, category_id, total_marks) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [$nic, $regNum, $years, $eduLevel, $coCurLevel, $exCurLevel]);
     }
 }

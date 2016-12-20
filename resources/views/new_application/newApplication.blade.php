@@ -6,14 +6,27 @@
 
 @section('content')
 <div class="row">
-	<h1 style="text-align: center">Application for admission to the Grade One in the year 2017</h1><br>
+	<h1 style="text-align: center">Application for admission to the Grade One in the year {{$year}}</h1><br>
 	<div class="col-xs-12 col-md-6 col-md-offset-3">
 		
 		<form action="{{route('newApplication2')}}" method="post">
 			{{ csrf_field() }}
+
 			<div class="form-group">
-				<label for="category">Category Applied for:</label>
-				<select class="form-control" id="category">
+				<label for="school">School:</label>
+				<select class="form-control" id="school" name="school">
+				@if ($schools)
+				@foreach ($schools as $school)
+					<option value="{{$school->reg_no}}">{{$school->name}}</option>
+				@endforeach
+				@endif
+				</select>
+			</div>
+
+			
+			<div class="form-group">
+				<label for="category">Application Category:</label>
+				<select class="form-control" id="category" name="category">
 					<option value="0">Past pupil</option>
 					<option value="1">Proximity</option>
 				</select>
@@ -23,18 +36,23 @@
 			<h3>Details of the Child:</h3>
 			<br>
 			<div class="form-group">
-				<label for="">Name in full</label>
-				<input type="text" class="form-control" id="child_name" name="child_name" placeholder="Full name of child">
+				<label for="">Surname of Child</label>
+				<input type="text" class="form-control" id="child_surname" name="child_surname" placeholder="Surname of child">
 			</div>
 
 			<div class="form-group">
-				<label for="">Name with initials</label>
-				<input type="text" class="form-control" id="child_name_initials" name="child_name_initials" placeholder="Name with initials">
+				<label for="">Initials</label>
+				<input type="text" class="form-control" id="child_name_initials" name="child_name_initials" placeholder="Initials">
+			</div>
+
+			<div class="form-group">
+				<label for="">Names denoted by initials</label>
+				<input type="text" class="form-control" id="child_names" name="child_names" placeholder="Names denoted by initials">
 			</div>
 
 			<div class="form-group">
 				<label for="category">Gender</label>
-				<select class="form-control" name="gender" id="gender">
+				<select class="form-control" name="child_gender" id="child_gender">
 					<option value="0">Female</option>
 					<option value="1">Male</option>
 				</select>
@@ -76,7 +94,7 @@
 
 			<div class="form-group">
 				<label for="medium">Medium of study</label>
-				<select class="form-control" id="medium">
+				<select class="form-control" id="medium" name="medium">
 					<option value="0">Sinhalese</option>
 					<option value="1">Tamil</option>
 				</select>
@@ -100,6 +118,18 @@
 			<div class="form-group">
 				<label for="nic">National Identity Card (NIC) number</label>
 				<input type="text" class="form-control" id="nic" name="nic" placeholder="NIC number">
+			</div>
+
+
+			<div class="form-group">
+				<label for="applicant_relationship">Relationship to the child</label>
+				<select class="form-control" name="applicant_relationship" id="applicant_relationship">
+					<option value="0">Mother</option>
+					<option value="1">Father</option>
+					<option value="2">Sibling</option>
+					<option value="3">Guardian</option>
+					<option value="4">Other</option>
+				</select>
 			</div>
 
 			<label for="nationality">Whether the Applicant is Sri Lankan</label>
@@ -172,48 +202,77 @@
 			<h3>School Preferences</h3><br>
 			<p>Please select 6 schools in descending order of preference.</p>
 
+
+<script type="text/javascript">
+		var schools = { 
+			@if ($schools)
+				@foreach ($schools as $school)
+					'{{$school->reg_no}}': "{{$school->name}}",
+				@endforeach
+			@endif
+			};
+		console.log(schools);
+</script>
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="form-group">
 						<label for="pref_1">1st Preference</label>
-						<select class="form-control" id="pref_1">
-							<option>dummy</option>
-							<option>dummy</option>
+						<select class="form-control" id="pref_1" name="pref_1">
+							@if ($schools)
+				@foreach ($schools as $school)
+					<option value="{{$school->reg_no}}">{{$school->name}}</option>
+				@endforeach
+				@endif
 						</select>
 					</div>
 					<div class="form-group">
 						<label for="pref_2">2nd Preference</label>
-						<select class="form-control" id="pref_2">
-							<option>dummy</option>
-							<option>dummy</option>
+						<select class="form-control" id="pref_2" name="pref_2">
+							@if ($schools)
+				@foreach ($schools as $school)
+					<option value="{{$school->reg_no}}">{{$school->name}}</option>
+				@endforeach
+				@endif
 						</select>
 					</div>
 					<div class="form-group">
 						<label for="pref_3">3rd Preference</label>
-						<select class="form-control" id="pref_3">
-							<option>dummy</option>
-							<option>dummy</option>
+						<select class="form-control" id="pref_3" name="pref_3">
+							@if ($schools)
+				@foreach ($schools as $school)
+					<option value="{{$school->reg_no}}">{{$school->name}}</option>
+				@endforeach
+				@endif
 						</select>
 					</div>
 					<div class="form-group">
 						<label for="pref_4">4th Preference</label>
-						<select class="form-control" id="pref_4">
-							<option>dummy</option>
-							<option>dummy</option>
+						<select class="form-control" id="pref_4" name="pref_4">
+							@if ($schools)
+				@foreach ($schools as $school)
+					<option value="{{$school->reg_no}}">{{$school->name}}</option>
+				@endforeach
+				@endif
 						</select>
 					</div>
 					<div class="form-group">
 						<label for="pref_5">5th Preference</label>
-						<select class="form-control" id="pref_5">
-							<option>dummy</option>
-							<option>dummy</option>
+						<select class="form-control" id="pref_5" name="pref_5">
+							@if ($schools)
+				@foreach ($schools as $school)
+					<option value="{{$school->reg_no}}">{{$school->name}}</option>
+				@endforeach
+				@endif
 						</select>
 					</div>
 					<div class="form-group">
 						<label for="pref_6">6th Preference</label>
-						<select class="form-control" id="pref_6">
-							<option>dummy</option>
-							<option>dummy</option>
+						<select class="form-control" id="pref_6" name="pref_6">
+							@if ($schools)
+				@foreach ($schools as $school)
+					<option value="{{$school->reg_no}}">{{$school->name}}</option>
+				@endforeach
+				@endif
 						</select>
 					</div>
 				</div>
