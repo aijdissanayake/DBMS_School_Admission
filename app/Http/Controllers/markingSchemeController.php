@@ -23,4 +23,10 @@ class markingSchemeController extends Controller
    		
    		return redirect('addMarkingScheme')->with('status', 'Scheme updated!');
     }
+
+    public function viewMarkingSchemeTab(){
+      pastPupil = DB::slect('select * from past_pupil_marking_schemes where active=1');
+      proximity = DB::select('select * from proximity_marking_schemes where active=1');
+      return view('addMarkingScheme',['pastPupilScheme' => pastPupil ]);
+    }
 }
