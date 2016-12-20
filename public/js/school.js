@@ -11,7 +11,7 @@ $(document).ready(function(){
 
 			$.ajax({
 				type: 'GET',
-				url: '/school/allApps',
+				url: '/school/searchApps',
 				data: { childName: childName, field : field},
 				success: function (data) {
 
