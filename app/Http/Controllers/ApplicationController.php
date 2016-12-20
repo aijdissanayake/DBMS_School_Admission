@@ -7,6 +7,8 @@ use App\Child;
 use App\Applicant;
 use App\Application;
 use DB;
+use App\PastPupilApplication;
+use App\ProximityApplication;
 
 class ApplicationController extends Controller
 {
@@ -65,18 +67,64 @@ class ApplicationController extends Controller
 		$child_id = $child->addChild($applicant_nic, $childInitials, $childDenotedNames, $childSurname, $childGender, $childReligion, $childDOB, $childMedium);
 
 		if ($child_id){
-			$application_added = $application->createApplication($app_year, $child_id, $applicant_nic, $app_school, $app_pref_1, $app_pref_2, $app_pref_3,$app_pref_4,$app_pref_5, $app_pref_6, $category, $app_marks);
+			$application_id = $application->createApplication($app_year, $child_id, $applicant_nic, $app_school, $app_pref_1, $app_pref_2, $app_pref_3,$app_pref_4,$app_pref_5, $app_pref_6, $category, $app_marks);
 		}
 
 		DB::commit();
 
+		if ($application_id){
+			if ($category == "1"){
+				return view('new_application.pastPupilApplication', compact('application_id'));
+			}
+			elseif ($category == "2") {
+				return view('new_application.proximityApplication', compact('application_id'));
+			}
 
 
-		if ($category == "0"){
-			return view('new_application.pastPupilApplication');
 		}
-		elseif ($category == "1") {
-			return view('new_application.proximityApplication');
+
+		
+	}
+
+	public function addNewPastPupilApplication(Request $request, $application_id){
+		$pp_name = $request['pp_name'];
+		$pp_name_initials = $request['pp_name_initials'];
+		$pp_nic = $request['pp_nic'];
+
+		$pp_app_id = PastPupilApplication::createPPApplication($application_id, $pp_name, $pp_name_initials, $pp_nic);
+
+		
+
+		if ($pp_app_id){
+			return redirect()->route('viewPPApplication', $pp_app_id);
 		}
+
+
+
+	}
+
+
+
+	public function addNewProximityApplication(Request $request){
+		
+	}
+
+	public function viewPastPupilApplication($pp_app_id){
+		$pp_application = PastPupilApplication::findApplication($pp_app_id);
+
+		if ($pp_application){
+			return view('new_application.viewPPApplication', compact('pp_application'));
+		}
+		else{
+			return view('errors.404');
+		}
+
+		
+	}
+
+	public function viewPxApplication($px_app_id){
+		$px_application = ProximityApplication::findApplication($px_app_id);
+
+		return view('new_application.viewPxApplication', compact('px_application'));
 	}
 }
