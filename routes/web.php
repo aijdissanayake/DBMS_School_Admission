@@ -70,4 +70,4 @@ Route::get('/school/searchApps', 'SchoolController@searchSchoolApps')->name('sea
 Route::get('/applicationsHome', ['as' => 'applications', 'uses' => function () {
 	return view('applications');
 }]);
-Route::get('/school/applicationlist/{id}', 'ApplicationController@viewApp')->name('studentApp');
+Route::post('/school/applicationlist/student', 'ApplicationController@viewApp')->name('studentApp');
