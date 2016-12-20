@@ -16,7 +16,6 @@ class CreateSchoolsTable extends Migration
         Schema::create('schools', function (Blueprint $table) {
             $table->string('reg_no');
             $table->string('name');
-            $table->decimal('distance',4,2);
             $table->primary('reg_no');
             $table->string('password');                                                                                          
             $table->timestamps();

@@ -35,6 +35,11 @@ class School extends Model
 		DB::insert('INSERT INTO schools (reg_no, name, password) VALUES (?, ?, ?)', [$regNum, $name, $password]);
 	}
 
+
+	public function getSchools(){
+		$schools = DB::select('SELECT * FROM schools');
+		return $schools;
+
 	public function searchSchoolApplications($regNo, $childName, $field){
 
 		$guess = "%".$childName."%";

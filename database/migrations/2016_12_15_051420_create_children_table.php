@@ -22,6 +22,7 @@ class CreateChildrenTable extends Migration
             $table->boolean('gender');
             $table->string('religion');
             $table->date('dob');
+            $table->string('medium');
             $table->timestamps();
             $table->foreign('applicant_nic')->references('nic')->on('applicants');
         });
