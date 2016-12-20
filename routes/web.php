@@ -22,15 +22,9 @@ Route::get('logout', function(){
 	return redirect()->route('login');
 });
 
-
-
 Route::post('auth', ['as'=>'auth', 'uses'=>'UserController@login']);
 
 Route::group(['middleware'=>'authX'], function(){
-	Route::get('allApplications', 'ApplicationController@viewAllApp')->name('viewAllApp');
-
-	Route::post('auth', 'HomeController@login');
-
 	Route::get('allApplications', 'ApplicationController@viewAllApp')->name('viewAllApp');
 
 //Admin Routes
