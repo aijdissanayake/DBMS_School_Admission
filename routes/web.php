@@ -18,6 +18,7 @@ Route::get('login', function(){
 });
 
 Route::post('auth', 'HomeController@login');
+
 Route::get('allApplications', 'ApplicationController@viewAllApp')->name('viewAllApp');
 
 //Admin Routes
