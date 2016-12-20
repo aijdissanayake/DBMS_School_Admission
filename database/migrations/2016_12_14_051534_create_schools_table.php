@@ -16,9 +16,7 @@ class CreateSchoolsTable extends Migration
         Schema::create('schools', function (Blueprint $table) {
             $table->string('reg_no');
             $table->string('name');
-            $table->primary('reg_no');
-            $table->string('password');                                                                                          
-            $table->timestamps();
+            $table->primary('reg_no');                                                                                        
         });
     }
 
