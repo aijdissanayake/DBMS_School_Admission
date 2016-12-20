@@ -22,7 +22,7 @@
                 <div class="collapse navbar-collapse" id="mobile_collapsed_navbar">
                     <ul class="nav navbar-nav">
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">Applications</a></li>
+                        <li><a href="{{route('applications')}}">Applications</a></li>
                         <li><a href="{{route('newSchool')}}">Schools</a></li>
                         <li><a href="#">Past Students</a></li>
                         <li><a href="addMarkingScheme">Marking Schemes</a></li>    

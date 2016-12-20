@@ -62,4 +62,9 @@ Route::post('school_added', 'SchoolController@addNew')->name('schooldAdd');
 
 Route::post('/addProximityMarkingScheme',['as'=>'addProximityMarkingScheme', 'uses'=>'markingSchemeController@addProximityMarkingScheme']);
 
-Route::post('/school/searchApps', 'SchoolController@searchSchoolApps')->name('searchSchoolApps');
+Route::get('/applicationsHome', ['as' => 'applications', 'uses' => function () {
+	return view('applications');
+}]);
+
+Route::get('/school/searchApps', 'SchoolController@searchSchoolApps')->name('searchSchoolApps');
+
