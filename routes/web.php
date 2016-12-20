@@ -51,17 +51,24 @@ Route::get('/addMarkingScheme',['as'=>'addMarkingScheme','uses'=>function(){
 
 Route::post('/addPastPupilMarkingScheme',['as'=>'addPastPupilMarkingScheme', 'uses'=>'markingSchemeController@addPastPupilMarkingScheme']);
 
-Route::get('add_school', ['as' => 'newSchool', 'uses' => function () {
-	return view('school.school_add');
-}]);
-
-Route::post('school_added', 'SchoolController@addNew')->name('schooldAdd');
-
 Route::post('/addProximityMarkingScheme',['as'=>'addProximityMarkingScheme', 'uses'=>'markingSchemeController@addProximityMarkingScheme']);
 
 Route::get('/applicationsHome', ['as' => 'applications', 'uses' => function () {
 	return view('applications');
 }]);
 
-Route::get('/school/searchApps', 'SchoolController@searchSchoolApps')->name('searchSchoolApps');
 
+//Admin Routes
+
+
+
+
+//Data Operator Routes
+
+Route::get('add_school', ['as' => 'newSchool', 'uses' => function () {
+	return view('school.school_add');
+}]);
+
+Route::post('school_added', 'SchoolController@addNew')->name('schooldAdd');
+
+Route::get('/school/searchApps', 'SchoolController@searchSchoolApps')->name('searchSchoolApps');
