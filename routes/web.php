@@ -61,3 +61,7 @@ Route::get('add_school', ['as' => 'newSchool', 'uses' => function () {
 Route::post('school_added', 'SchoolController@addNew')->name('schooldAdd');
 
 Route::post('/addProximityMarkingScheme',['as'=>'addProximityMarkingScheme', 'uses'=>'markingSchemeController@addProximityMarkingScheme']);
+
+Route::get('/applicationsHome', ['as' => 'applications', 'uses' => function () {
+	return view('applications');
+}]);
