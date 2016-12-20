@@ -14,9 +14,15 @@
                          <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title">User Login</h3>
+
+                                @if ($errors)
+                                    @foreach ($errors as $error)
+                                    {{$error}}
+                                    @endforeach
+                                @endif
                             </div>
                             <div class="panel-body">
-                                <form method="post" action="/auth">
+                                <form method="post" action="{{route('auth')}}">
                                 {{csrf_field()}}
                                     <div class="form-group">
                                         <label for="username">User Name</label>
