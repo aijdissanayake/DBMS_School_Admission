@@ -27,8 +27,8 @@
 			<div class="form-group">
 				<label for="category">Application Category:</label>
 				<select class="form-control" id="category" name="category">
-					<option value="0">Past pupil</option>
-					<option value="1">Proximity</option>
+					<option value="1">Past pupil</option>
+					<option value="2">Proximity</option>
 				</select>
 			</div>
 
