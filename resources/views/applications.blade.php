@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-md-6">
-    	<h2>Custom search field</h2>
+    	<h2>Search applications</h2>
             <div id="custom-search-input">
                 <div class="input-group col-md-12">
                     <input type="text" class="form-control input-lg" placeholder="Name" />
@@ -19,7 +19,7 @@
 </div>
 <div>
 	<button type="button" class="btn btn-default navbar-btn">Submit new application</button>
-	<button type="button" class="btn btn-default navbar-btn">View all application</button>	
+	<button type="button" class="btn btn-default navbar-btn">View all applications</button>	
 
 </div>
 
