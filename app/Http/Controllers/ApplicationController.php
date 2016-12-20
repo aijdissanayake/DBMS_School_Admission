@@ -112,7 +112,14 @@ class ApplicationController extends Controller
 	public function viewPastPupilApplication($pp_app_id){
 		$pp_application = PastPupilApplication::findApplication($pp_app_id);
 
-		return view('new_application.viewPPApplication', compact('pp_application'));
+		if ($pp_application){
+			return view('new_application.viewPPApplication', compact('pp_application'));
+		}
+		else{
+			return view('errors.404');
+		}
+
+		
 	}
 
 	public function viewPxApplication($px_app_id){
