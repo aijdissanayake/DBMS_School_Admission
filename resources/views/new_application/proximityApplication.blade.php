@@ -10,9 +10,15 @@
 	<h1>Application for admission to the Grade One in the year 2017</h1><br>
 	<div class="col-xs-12 col-md-6">
 		<br>
-		<h3>Details of Past Pupil</h3>
+		<h3>Details of the Applicant</h3>
+		@if ($errors)
 		<br>
-		<form method="post" action="{{route('newApplication2')}}">
+		@foreach ($errors as $error)
+			<p style="color: red">{{$error}}</p>
+			@endforeach
+		@endif
+		<br>
+		<form method="post" action="{{route('storeApplication2', [$application_id])}}">
 			{{ csrf_field() }}
 			<div class="form-group">
 				<label for="no_er_years">Number of years that either the name of the applicant or the name of the spouse was included in the electoral register:</label>
@@ -23,6 +29,10 @@
 				<label for="no_schools_nearby">Number of schools located closer to the place of residence where the child could be admitted than the school applied by this application:</label>
 				<input type="number" min="0" max="20" class="form-control" id="no_schools_nearby" name="no_schools_nearby">
 			</div>
+
+			<div class="form-group">
+				<label for="distance">Distance to the school applied by this application:</label>
+				<input type="number" min="0" max="50" class="form-control" id="distance" name="distance">
 
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">

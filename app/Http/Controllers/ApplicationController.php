@@ -98,6 +98,10 @@ class ApplicationController extends Controller
 		if ($pp_app_id){
 			return redirect()->route('viewPPApplication', $pp_app_id);
 		}
+		else{
+			$errors = "Something went wrong. Please re-check the details you entered. If you think this is a system fault, please contact the development team.";
+			return view('new_application.pastPupilApplication', compact('application_id', 'errors'));
+		}
 
 
 
@@ -105,7 +109,21 @@ class ApplicationController extends Controller
 
 
 
-	public function addNewProximityApplication(Request $request){
+	public function addNewProximityApplication(Request $request, $application_id){
+		$no_er_years = $request['no_er_years'];
+		$no_schools_nearby = $request['no_schools_nearby'];
+		$distance = $request['distance'];
+
+		$px_app_id = ProximityApplication::createPxApplication($application_id, $no_er_years, $no_schools_nearby, $distance);
+
+
+		if ($px_app_id){
+			return redirect()->route('viewPxApplication', $px_app_id);
+		}
+		else{
+			$errors = array("Something went wrong. Please re-check the details you entered. If you think this is a system fault, please contact the development team.");
+			return view('new_application.proximityApplication', compact('application_id', 'errors'));
+		}
 		
 	}
 
@@ -125,6 +143,13 @@ class ApplicationController extends Controller
 	public function viewPxApplication($px_app_id){
 		$px_application = ProximityApplication::findApplication($px_app_id);
 
-		return view('new_application.viewPxApplication', compact('px_application'));
+		if ($px_application){
+			return view('new_application.viewPxApplication', compact('px_application'));
+		}
+		else{
+			return view('errors.404');
+		}
+
+		
 	}
 }
