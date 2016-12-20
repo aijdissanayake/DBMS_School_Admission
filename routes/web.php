@@ -63,7 +63,7 @@ Route::get('/viewPPApplication/{application_id}',['as'=>'viewPPApplication', 'us
 
 Route::post('/storePPApplication/{application_id}', ['as' => 'storeApplication1', 'uses' => 'ApplicationController@addNewPastPupilApplication']);
 
-Route::get('/applicantionlist', ['as' => 'list', 'uses' =>'SchoolController@viewList']);
+Route::get('/applicationlist', ['as' => 'list', 'uses' =>'SchoolController@viewList']);
 
 Route::get('/school/searchApps', 'SchoolController@searchSchoolApps')->name('searchSchoolApps');
 

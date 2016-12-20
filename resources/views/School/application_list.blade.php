@@ -16,7 +16,7 @@
 	<div class="col-sm-9">
 		<div class="row">
 			<br><br>
-			<form action="{{route('')}}" method="post">
+			<form action="#" method="post">
 			<div class="col-sm-5">
 			<div class="form-group">
                 <select type="text" class="form-control" placeholder="Search" id="field" >
