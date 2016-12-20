@@ -51,9 +51,8 @@ Route::group(['middleware'=>"authX"], function(){
 
 		Route::post('pastpupil_record_added', 'PastPupilController@addNewRecord')->name('pastpupilRecordAdd');
 
-		Route::get('/addMarkingScheme',['as'=>'addMarkingScheme','uses'=>function(){
-			return view('addMarkingScheme');
-		}]);
+		Route::get('/addMarkingScheme',['as'=>'addMarkingScheme','uses'=>'markingSchemeController@viewMarkingSchemeTab'
+		]);
 
 		Route::post('/addPastPupilMarkingScheme',['as'=>'addPastPupilMarkingScheme', 'uses'=>'markingSchemeController@addPastPupilMarkingScheme']);
 
