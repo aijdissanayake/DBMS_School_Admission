@@ -121,7 +121,7 @@ class ApplicationController extends Controller
 			return redirect()->route('viewPxApplication', $px_app_id);
 		}
 		else{
-			$errors = array("Something went wrong. Please re-check the details you entered. If you think this is a system fault, please contact the development team.");
+			$errors = array("Something went wrong. Please re-check the details you entered. If you think this is a system fault, please contact the development team.")	;
 			return view('new_application.proximityApplication', compact('application_id', 'errors'));
 		}
 		
@@ -151,5 +151,26 @@ class ApplicationController extends Controller
 		}
 
 		
+	}
+
+	public function viewApp(Request $request){
+
+		$id = $request['results'];
+		$category_id = Application::getCategory($id);
+		echo $category_id;
+
+		// if($category_id){
+			if ($category_id == 2) {
+				return redirect()->route('viewPxApplication', ['id' => $id]);
+			}
+			else{
+				return redirect()->route('viewPPApplication', ['id' => $id]);
+			}
+		// }
+
+		// else{
+		// 	return view('errors.404');
+		// }
+
 	}
 }
