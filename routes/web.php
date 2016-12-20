@@ -15,6 +15,8 @@ Route::get('/', function () {
 	return view('login');
 });
 
+Route::get('allApplications', 'ApplicationController@viewAllApp')->name('viewAllApp');
+
 //Admin Routes
 
 Route::get('/viewPxApplication/{application_id}',['as'=>'viewPxApplication', 'uses'=>'ApplicationController@viewPxApplication']);
