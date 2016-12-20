@@ -30,4 +30,12 @@ public static function findApplication($app_id){
 	}
 }
 
+    public function getAllApps(){
+
+        $all = DB::select("SELECT application_id,initials,surname,total_marks FROM all_past_pupil_application_details");
+
+        return $all;
+    }
+
+
 }
