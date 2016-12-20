@@ -30,6 +30,8 @@ Route::post('/storePxApplication{application_id}', ['as' => 'storeApplication2',
 
 Route::get('/viewPPApplication/{application_id}',['as'=>'viewPPApplication', 'uses'=>'ApplicationController@viewPastPupilApplication']);
 
+Route::get('/viewPxApplication/{application_id}',['as'=>'viewPxApplication', 'uses'=>'ApplicationController@viewPxApplication']);
+
 Route::get('add_pastpupil', ['as' => 'newPastPupil', 'uses' => function () {
 	return view('pastpupil.pastpupil_add');
 }]);

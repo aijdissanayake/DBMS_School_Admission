@@ -11,6 +11,11 @@
 	<div class="col-xs-12 col-md-6">
 		<br>
 		<h3>Details of Past Pupil</h3>
+
+		@if ($errors)
+		<br>
+			<p style="color: red">{{$errors}}</p>
+		@endif
 		<br>
 		<form method="post" action="{{route('storeApplication1', [$application_id])}}">
 		{{ csrf_field()}}
