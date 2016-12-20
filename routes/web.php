@@ -27,11 +27,12 @@ Route::get('logout', ['as'=>'logout', 'uses'=>function(){
 Route::post('auth', ['as'=>'auth', 'uses'=>'UserController@login']);
 
 Route::group(['middleware'=>"authX"], function(){
-	Route::get('allApplications', 'ApplicationController@viewAllApp')->name('viewAllApp');
+	
 
 //Admin Routes
 	Route::group(['middleware'=>"role_auth:1"], function(){
 		Route::get('/viewPxApplication/{application_id}',['as'=>'viewPxApplication', 'uses'=>'ApplicationController@viewPxApplication']);
+		Route::get('allApplications', 'ApplicationController@viewAllApp')->name('viewAllApp');
 
 		Route::get('add_pastpupil', ['as' => 'newPastPupil', 'uses' => function () {
 			return view('pastpupil.pastpupil_add');
