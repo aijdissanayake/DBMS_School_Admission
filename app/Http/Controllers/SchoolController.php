@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Hash;
+
 use App\School;
 
 class SchoolController extends Controller
@@ -31,5 +33,19 @@ class SchoolController extends Controller
         $school = new School();
         $school->register($regNum, $name, $password);
         return redirect(route('newSchool'))->with('status', 'New school has been successfully added! You may continue adding more.');
+    }
+
+    public function searchSchoolApps(Request $request){
+
+        $field = $request['field'];
+        $childName = $request['childName'];
+        $regNo = '00001RC';
+        $school = new School();
+
+        $searchResults = $school->searchSchoolApps($regNo, $childName, $field){
+
+
+        }
+
     }
 }
