@@ -20,4 +20,10 @@ class Application extends Model
     		return false;
     	}
     }
+
+    public static function getCategory($id){
+
+        $category_id = DB::select('SELECT category_id from applications WHERE id = ?',[$id])[0]->category_id;
+        return $category_id;
+    }
 }

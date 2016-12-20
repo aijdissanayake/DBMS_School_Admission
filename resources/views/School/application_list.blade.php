@@ -16,7 +16,8 @@
 	<div class="col-sm-9">
 		<div class="row">
 			<br><br>
-			<form action="{{route('')}}" method="post">
+			<form action="{{route('studentApp')}}" method="post">
+			{{csrf_field()}}
 			<div class="col-sm-5">
 			<div class="form-group">
                 <select type="text" class="form-control" placeholder="Search" id="field" >
@@ -27,7 +28,7 @@
             </div>
             <div class="col-sm-5">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search" id="search" list="results">
+                <input type="text" class="form-control" placeholder="Search" id="search" list="results" name="results">
                 <datalist id="results">
 				</datalist>
             </div>

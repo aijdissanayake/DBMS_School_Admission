@@ -152,4 +152,25 @@ class ApplicationController extends Controller
 
 		
 	}
+
+	public function viewApp(Request $request){
+
+		$id = $request['results'];
+		$category_id = Application::getCategory($id);
+		echo $category_id;
+
+		// if($category_id){
+			if ($category_id == 2) {
+				return redirect()->route('viewPxApplication', ['id' => $id]);
+			}
+			else{
+				return redirect()->route('viewPPApplication', ['id' => $id]);
+			}
+		// }
+
+		// else{
+		// 	return view('errors.404');
+		// }
+
+	}
 }
