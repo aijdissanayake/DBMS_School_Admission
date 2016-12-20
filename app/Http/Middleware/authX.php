@@ -21,9 +21,6 @@ class authX
         }
         else{
             return redirect()->route('login');
-        }
-
-        return $next($request);
-        
+        }        
     }
 }

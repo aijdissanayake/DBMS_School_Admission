@@ -13,18 +13,20 @@
 
 Route::get('/', ['as'=>'home', 'uses'=>'UserController@home']);
 
+Route::get('home', ['as'=>'land', 'uses'=>'UserController@home']);
+
 Route::get('login', ['as'=>'login', 'uses'=>function(){
 	return view('auth.login');
 }]);
 
-Route::get('logout', function(){
+Route::get('logout', ['as'=>'logout', 'uses'=>function(){
 	Auth::logout();
 	return redirect()->route('login');
-});
+}]);
 
 Route::post('auth', ['as'=>'auth', 'uses'=>'UserController@login']);
 
-Route::group(['middleware'=>'authX'], function(){
+Route::group(['middleware'=>"authX"], function(){
 	Route::get('allApplications', 'ApplicationController@viewAllApp')->name('viewAllApp');
 
 //Admin Routes
