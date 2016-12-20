@@ -46,7 +46,21 @@ class School extends Model
 	public function searchSchoolApps($regNo, $childName, $field){
 
 		$guess = "%".$childName."%";
-		
-		DB::select('SELECT initials, surname,denoted_name, total_marks FROM applications INNER JOIN children ON applications.child_id = children.id where school_reg_no = ? ', [$regNo]);
+
+		if($field = "surname"){
+
+		$applications = DB::select('SELECT applications.id AS id ,surname, denoted_name FROM applications INNER JOIN children ON applications.child_id = children.id where school_reg_no = ? AND surname LIKE ? LIMIT 10', [$regNo , $guess]);
+
+		return $applications;
+
+		}
+
+		else{
+
+			$applications = DB::select('SELECT initials, surname,denoted_name, total_marks FROM applications INNER JOIN children ON applications.child_id = children.id where school_reg_no = ? AND denoted_name LIKE ? LIMIT 10', [$regNo ,$guess]);
+
+		return $applications;
+		}
+	
 	}
 }
