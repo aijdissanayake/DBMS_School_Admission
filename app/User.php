@@ -3,7 +3,8 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Support\Facades\DB;
 
 class User implements Authenticatable
 {
@@ -14,8 +15,8 @@ class User implements Authenticatable
     public $password;
 
     private static $roles = array(
-                1 => 'Administrator',
-                2 => 'school_operator'
+        1 => 'Administrator',
+        2 => 'school_operator'
         );
 
     use Notifiable;
@@ -46,7 +47,7 @@ class User implements Authenticatable
      */
     public function getAuthIdentifierName()
     {
-        return 'username';
+        return 'id';
     }
 
     /**
@@ -56,7 +57,7 @@ class User implements Authenticatable
      */
     public function getAuthIdentifier()
     {
-        return $this->username;
+        return $this->id;
     }
 
     /**
@@ -101,39 +102,33 @@ class User implements Authenticatable
     }
 
     public function save(){
-     return User::create($this->name, $this->username, $this->password,$this->role);
-    }
+       return User::create($this->name, $this->username, $this->password,$this->role);
+   }
 
- public static function all(){
-    $result = DB::select("Select id,name, username,role, password FROM user");
+   public static function all(){
+    $result = DB::select("Select id,name, username,role, password FROM users");
     $users = array();
     foreach ($result as $r) {
         $u = new User();
         $u->id = $r->id;
         $u->username = $r->username;
         $u->name =$r->name;
-        $u->role = User::$roles[$r->role];
+        $u->role = $r->role;
         $u->password = $r->password;
 
-        if($u->role_id == 2 && isset($u->school_id)){
-            $school = School::findByID($u->school_id);
-            if($school){
-                $u->school = $school->school;
-            }
-        }
         array_push($users,$u);
     }
     return $users;
 }
 
 public static function create($name, $username,$password,$role){
-    $result = DB::statement("INSERT INTO user(name, username,password,role) values (:name, :username,:password,:role)",
+    $result = DB::statement("INSERT INTO users(name, username,password,role) values (:name, :username,:password,:role)",
       array(
-            'name'=>$name,
-          'username' => $username,
-          'password' => $password,
-          'role' => $role_id
-          ));
+        'name'=>$name,
+        'username' => $username,
+        'password' => $password,
+        'role' => $role
+        ));
     return $result;
 }
 
@@ -142,6 +137,7 @@ public static function find($id){
     if(count($result) == 1){
         $u = new User();
         $u->id = $result[0]->id;
+        $u->name = $result[0]->name;
         $u->username = $result[0]->username;
         $u->password = $result[0]->password;
         $u->role = $result[0]->role;
@@ -151,13 +147,10 @@ public static function find($id){
     }
 }
 
-public static function authenticate($username, $password){
+public static function authenticate($username){
 
-    $r = DB::select("SELECT id,username,role,school_id FROM user where username=:username and password=:password",
-        array(
-            'username' => $username,
-            'password' => $password
-            ));
+    $r = DB::select("SELECT id,name,username,password, role FROM users where username=?",[$username]);
+
 
     if(count($r) != 1){
         return null;
@@ -166,17 +159,9 @@ public static function authenticate($username, $password){
     $u = new User();
     $u->id = $r[0]->id;
     $u->username = $r[0]->username;
-    $u->password = $password;
-    $u->role_id =$r[0]->role;
-    $u->role = User::$roles[$r[0]->role];
-    $u->school_id = $r[0]->school_id;
-    if($u->role_id == 2 && isset($u->school_id)){
-        $school = School::findByID($u->school_id);
-        if($school){
-            $u->school = $school->school;
-        }
-    }
-
+    $u->password = $r[0]->password;
+    $u->role = $r[0]->role;
+    
     return $u;
 }
 

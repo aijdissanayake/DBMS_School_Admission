@@ -27,4 +27,9 @@ class Application extends Model
         $category_id = $category_id[0]->category_id;
         return $category_id;
     }
+
+    public static function viewAllApp() {
+        $allApps = DB::select('SELECT * FROM applications_summary');
+        return $allApps;
+    }
 }
