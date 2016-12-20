@@ -6,22 +6,25 @@
         </head>
         <body>
             <div class="container">
-                <h1 align="center">Ministry of Education</h1>
+                <h1 align="center">Ministry of Education<br/><small>Grade one Entry Evaluations</small></h1>
+                <br>
+                <br>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-md-offset-4">
                          <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title">User Login</h3>
                             </div>
                             <div class="panel-body">
-                                <form>
+                                <form method="post" action="login">
+                                {{csrf_field()}}
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                                        <label for="username">User Name</label>
+                                        <input name="username" type="text" class="form-control" id="username" placeholder="Username">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                        <label for="password">Password</label>
+                                        <input name="password" type="password" class="form-control" id="password" placeholder="Password">
                                     </div>
                                     <button type="submit" class="btn btn-default">Login</button>
                                 </form>
@@ -29,7 +32,6 @@
                         </div>    
                     </div>
                 </div>
-               
             </div>
         </body>
         <script type="text/javascript" src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
