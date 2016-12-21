@@ -38,10 +38,23 @@
                     <li><a href="{{route('list')}}" style="color: white">Applications</a></li>
                     @endif
 
-                    <li><a href="{{route('addMarkingScheme')}}" style="color: white">Marking Schemes</a></li>    
-                    <li><a href="{{route('newPastPupil')}}" style="color: white">Past Students</a></li>
-
+                    <li><a href="{{route('addMarkingScheme')}}" style="color: white">Marking Schemes</a></li>
+                    @if (Auth::user()->role == 1)
+                    <li>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white">Past Student<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{route('newPastPupilRecord')}}" style="color: grey">Record</a></li>
+                            <li role="separator" class="divider" style="color: grey"></li>
+                            <li><a href="{{route('newPastPupil')}}" style="color: grey">Past Pupil</a></li>
+                        </ul>
+                    </li>
+                    </ul>
                 </ul>
+                @endif
+                </ul>
+                
 
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
