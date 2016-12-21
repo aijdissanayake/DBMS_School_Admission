@@ -33,6 +33,6 @@ class markingSchemeController extends Controller
     public function viewMarkingSchemeTab(){
       $pastPupil = DB::select('select * from past_pupil_marking_schemes where active=1 limit 1');
       $proximity = DB::select('select * from proximity_marking_schemes where active=1');
-      return view('addMarkingScheme',['pastPupilScheme' => $pastPupil]);
+      return view('addMarkingScheme')->with('pastPupilScheme', $pastPupil)->with('proximityScheme',$proximity);
     }
 }
