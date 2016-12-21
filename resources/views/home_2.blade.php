@@ -16,7 +16,11 @@
 				<br>
 
 				<a class="btn btn-primary btn-lg" href="{{route('newApplication')}}" role="button">Submit new application</a>
-				<a class="btn btn-primary btn-lg" href="#" role="button">View all applications</a>
+				@if($username == 'admin')
+				<a class="btn btn-primary btn-lg" href="{{route('viewAllApp')}}" role="button">View all applications</a>
+				@else
+				<a class="btn btn-primary btn-lg" href="{{route('list')}}" role="button">View all applications</a>
+				@endif
 			</div>
 
 		</div>

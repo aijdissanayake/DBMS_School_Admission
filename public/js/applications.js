@@ -21,6 +21,7 @@ $(document).ready(function(){
 					console.log(data['success']);
 
 					$('#results').empty();
+					
 					for(var i in results){
 
 						 console.log(results[i]['id']);

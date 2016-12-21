@@ -12,6 +12,7 @@ use App\School;
 use App\Application;
 use App\Applicant;
 
+
 class UserController extends Controller
 {
 
@@ -71,10 +72,11 @@ class UserController extends Controller
 
 	public function home(Request $request){
 		if (Auth::check()){
+			$username =\Illuminate\Support\Facades\Auth::user()->username;
 			$schoolCount = count(School::getSchools());
 			$applicationCount = count(Application::getApplications());
 			$applicantCount = count(Applicant::getApplicants());
-			return view('home_2', compact('schoolCount', 'applicationCount', 'applicantCount'));
+			return view('home_2', compact('schoolCount', 'applicationCount', 'applicantCount','username'));
 		}
 		
 		else {
