@@ -39,30 +39,33 @@
 			</table>
 		</div> 
 		<div class="col-xs-6">
-			<tr><td>
-				{$px_application->denoted_name}}
-			</td></tr>
-			<tr><td>
-				{{$px_application->surname}}
-			</td></tr>
-			<tr><td>
-				{{$px_application->full_name}}
-			</td></tr>
-			<tr><td>
-				{{$px_application->name}}
-			</td></tr>
-			<tr><td>
-				{{$px_application->total_marks}}
-			</td></tr>
-			<tr><td>
-				{{$px_application->no_er_years}}
-			</td></tr>
-			<tr><td>
-				{{$px_application->no_schools_nearby}}
-			</td></tr>
-			<tr><td>
-				{{$px_application->distance}}
-			</td></tr>
+			<table class="table table-striped">
+				<tr><td>
+					{{$px_application->denoted_name}}
+				</td></tr>
+				<tr><td>
+					{{$px_application->surname}}
+				</td></tr>
+				<tr><td>
+					{{$px_application->full_name}}
+				</td></tr>
+				<tr><td>
+					{{$px_application->name}}
+				</td></tr>
+				<tr><td>
+					{{$px_application->total_marks}}
+				</td></tr>
+				<tr><td>
+					{{$px_application->no_er_years}}
+				</td></tr>
+				<tr><td>
+					{{$px_application->no_schools_nearby}}
+				</td></tr>
+				<tr><td>
+					{{$px_application->distance}}
+				</td></tr>
+			</table>
+			
 		</div>
 		
 	</div>
