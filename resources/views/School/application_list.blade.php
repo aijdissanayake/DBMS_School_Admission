@@ -10,8 +10,12 @@
 
 
 <div class="row">
-	<div class="col-sm-12">
+	<div class="col-sm-10">
 	<h2 >{{$school_details->name}}</h2>
+	</div>
+	<br>
+	<div class="col-sm-2">
+	<a class="btn btn-primary btn-lg" href="{{route('newApplication')}}" role="button">Submit new application</a>
 	</div>
 </div>
 <div class="row">
