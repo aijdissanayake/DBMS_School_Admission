@@ -15,19 +15,24 @@ class markingSchemeController extends Controller
     	$proximityMarking = new ProximityMarkingScheme();
    		$proximityMarking->addMarkingScheme($request);
    		
-   		return redirect('addMarkingScheme')->with('status', 'Scheme updated!');
+
+      $pastPupil = DB::select('select * from past_pupil_marking_schemes where active=1 limit 1');
+      $proximity = DB::select('select * from proximity_marking_schemes where active=1');
+   		return redirect('addMarkingScheme')->with('pastPupilScheme', $pastPupil)->with('proximityScheme',$proximity);
     }
 
     public function addPastPupilMarkingScheme(Request $request){
    		$pastPupilMarking = new PastPupilMarkingScheme();
    		$pastPupilMarking->addMarkingScheme($request);
    		
-   		return redirect('addMarkingScheme')->with('status', 'Scheme updated!');
+      $pastPupil = DB::select('select * from past_pupil_marking_schemes where active=1 limit 1');
+      $proximity = DB::select('select * from proximity_marking_schemes where active=1');
+   		return redirect('addMarkingScheme')->with('pastPupilScheme', $pastPupil)->with('proximityScheme',$proximity);
     }
 
     public function viewMarkingSchemeTab(){
-      $pastPupil = DB::select('select * from past_pupil_marking_schemes where active=1');
+      $pastPupil = DB::select('select * from past_pupil_marking_schemes where active=1 limit 1');
       $proximity = DB::select('select * from proximity_marking_schemes where active=1');
-      return view('addMarkingScheme',['pastPupilScheme' => $pastPupil ]);
+      return view('addMarkingScheme',['pastPupilScheme' => $pastPupil]);
     }
 }

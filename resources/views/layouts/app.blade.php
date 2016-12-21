@@ -30,13 +30,15 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="mobile_collapsed_navbar">
                 <ul class="nav navbar-nav">
-                    <li><a href="" style="color: white">Home</a></li>
+                    <li><a href="{{route('home')}}" style="color: white">Home</a></li>
                     <li><a href="{{route('applications')}}" style="color: white">Applications</a></li>
                     @if (Auth::user()->role == 1)
                     <li><a href="{{route('newSchool')}}" style="color: white">Schools</a></li>
                     @endif
-                    <li><a href="#" style="color: white">Past Students</a></li>
+
                     <li><a href="{{route('addMarkingScheme')}}" style="color: white">Marking Schemes</a></li>    
+                    <li><a href="{{route('newPastPupil')}}" style="color: white">Past Students</a></li>
+
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
