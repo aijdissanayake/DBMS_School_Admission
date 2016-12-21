@@ -51,7 +51,7 @@
 			@if(count($past_pupil_applications))
 			@foreach($past_pupil_applications as $past_pupil_application)
 			<div class="list-group">
-				<a href="#" class="list-group-item">
+				<a href="{{route('viewPPApplication',['application_id' => $past_pupil_application->application_id])}}" class="list-group-item">
 					<li class="list-group-item">
 						<h4 class="list-group-item-heading">{{$past_pupil_application->initials}}&nbsp;{{$past_pupil_application->surname}}<span class="badge" style="float: right;">marks: {{$past_pupil_application->total_marks}}</span></h4>
 					</li>					
@@ -73,7 +73,7 @@
 			@if(count($proximity_applications))
 			@foreach($proximity_applications as $proximity_application)
 			<div class="list-group">
-				<a href="#" class="list-group-item">
+				<a href="{{route('viewPxApplication',['application_id' => $proximity_application->application_id])}}" class="list-group-item">
 					<li class="list-group-item">
 						<h4 class="list-group-item-heading">{{$proximity_application->initials}}&nbsp;{{$proximity_application->surname}}<span class="badge" style="float: right;">marks: {{$proximity_application->total_marks}}</span></h4>
 					</li>
