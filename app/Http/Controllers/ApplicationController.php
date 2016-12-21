@@ -96,7 +96,7 @@ class ApplicationController extends Controller
 		
 
 		if ($pp_app_id){
-			return redirect()->route('viewPPApplication', $pp_app_id);
+			return redirect()->route('viewPPApplication', $application_id);
 		}
 		else{
 			$errors = "Something went wrong. Please re-check the details you entered. If you think this is a system fault, please contact the development team.";
@@ -118,7 +118,7 @@ class ApplicationController extends Controller
 
 
 		if ($px_app_id){
-			return redirect()->route('viewPxApplication', $px_app_id);
+			return redirect()->route('viewPxApplication', $application_id);
 		}
 		else{
 			$errors = array("Something went wrong. Please re-check the details you entered. If you think this is a system fault, please contact the development team.")	;
