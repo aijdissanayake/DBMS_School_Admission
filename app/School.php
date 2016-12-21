@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Support\Facades\DB;
+use App\User;
 
 class School extends Model
 {
@@ -32,11 +33,13 @@ class School extends Model
 	}
 
 	public function register($regNum, $name, $password) {
-		DB::insert('INSERT INTO schools (reg_no, name, password) VALUES (?, ?, ?)', [$regNum, $name, $password]);
+		DB::insert('INSERT INTO schools (reg_no, name) VALUES (?, ?)', [$regNum, $name]);
+
+		$user = User::create($name, $regNum, bcrypt($password), 2);
 	}
 
 
-	public function getSchools(){
+	public static function getSchools(){
 
 		$schools = DB::select('SELECT * FROM schools');
 		return $schools;

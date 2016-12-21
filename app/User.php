@@ -122,13 +122,8 @@ class User implements Authenticatable
 }
 
 public static function create($name, $username,$password,$role){
-    $result = DB::statement("INSERT INTO users(name, username,password,role) values (:name, :username,:password,:role)",
-      array(
-        'name'=>$name,
-        'username' => $username,
-        'password' => $password,
-        'role' => $role
-        ));
+    $result = DB::statement("INSERT INTO users(name, username,password,role) values (?, ?,?,?)",
+      [$name, $username, $password, $role]);
     return $result;
 }
 

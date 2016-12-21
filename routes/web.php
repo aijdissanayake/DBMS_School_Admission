@@ -11,6 +11,8 @@
 |
 */
 
+use App\School;
+
 Route::get('/', ['as'=>'home', 'uses'=>'UserController@home']);
 
 Route::get('home', ['as'=>'land', 'uses'=>'UserController@home']);
@@ -33,8 +35,10 @@ Route::group(['middleware'=>"authX"], function(){
 	Route::group(['middleware'=>"role_auth:1"], function(){
 
 		Route::get('add_school', ['as' => 'newSchool', 'uses' => function () {
-			return view('school.school_add');
+			$schools = School::getSchools();
+			return view('school.school_add', compact('schools'));
 		}]);
+
 
 		Route::post('school_added', 'SchoolController@addNew')->name('schooldAdd');
 
@@ -76,8 +80,7 @@ Route::group(['middleware'=>"authX"], function(){
 
 
 		Route::get('/newApplication', ['as' => 'newApplication', 'uses' => function(){
-			$schools = new App\School();
-			$schools = $schools->getSchools();
+			$schools = School::getSchools();
 			$year = date("Y")+1;
 			return view('new_application.newApplication', compact('schools', 'year'));
 		}]);

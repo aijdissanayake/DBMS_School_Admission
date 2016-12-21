@@ -76,23 +76,23 @@
 				  <div class="panel-body">
 				    <ul class="list-group">
 					  <li class="list-group-item">
-					    <span class="badge">{{$pastPupilScheme[0]->name}}</span>
+					    <span class="badge">{{$pastPupilScheme[0]}}</span>
 					    Scheme name
 					  </li>
 					  <li class="list-group-item">
-					    <span class="badge">{{$pastPupilScheme[0]->edu_mult}}</span>
+					    <span class="badge">{{$pastPupilScheme[1]}}</span>
 					    Education level multiplier 
 					  </li>
 					  <li class="list-group-item">
-					    <span class="badge">{{$pastPupilScheme[0]->co_curr_mult}}</span>
+					    <span class="badge">{{$pastPupilScheme[2]}}</span>
 					    Co curricular level multiplier
 					  </li>
 					  <li class="list-group-item">
-					    <span class="badge">{{$pastPupilScheme[0]->ex_curr_mult}}</span>
+					    <span class="badge">{{$pastPupilScheme[3]}}</span>
 					    Extra curricular level multiplier
 					  </li>
 					  <li class="list-group-item">
-					    <span class="badge">{{$pastPupilScheme[0]->years_mult}}</span>
+					    <span class="badge">{{$pastPupilScheme[4]}}</span>
 					    Duration multiplier
 					  </li>
 					</ul>
