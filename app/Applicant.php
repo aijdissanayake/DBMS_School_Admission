@@ -23,4 +23,9 @@ class Applicant extends Model
     	}
     }
 
+    public static function getApplicants(){
+        $applicants = DB::select("SELECT * from applicants");
+        return $applicants;
+    }
+
 }

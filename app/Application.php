@@ -53,4 +53,8 @@ class Application extends Model
         }
     
     }
+    public static function getApplications(){
+        $applications = DB::select("SELECT * FROM applications");
+        return $applications;
+    }
 }

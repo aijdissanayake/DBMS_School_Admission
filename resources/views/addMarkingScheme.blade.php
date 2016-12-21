@@ -8,6 +8,7 @@
 			<div class="panel-heading">
 				<h3 class="panel-title">Current past pupil marking Scheme</h3>
 			</div>
+			@if ($pastPupilScheme)
 			<div class="panel-body">
 				<ul class="list-group">
 					<li class="list-group-item">
@@ -32,6 +33,11 @@
 					</li>
 				</ul>
 			</div>
+			@else
+			<br><br>
+			<p>No marking scheme has been entered for past pupils yet.</p>
+			<br>
+			@endif
 		</div>
 	</div>
 	<div class="col-md-6">
@@ -39,6 +45,7 @@
 			<div class="panel-heading">
 				<h3 class="panel-title">Current proximity marking Scheme</h3>
 			</div>
+			@if ($proximityScheme)
 			<div class="panel-body">
 				<ul class="list-group">
 					<li class="list-group-item">
@@ -63,6 +70,7 @@
 					</li>
 				</ul>
 			</div>
+			@endif
 		</div>
 	</div>
 

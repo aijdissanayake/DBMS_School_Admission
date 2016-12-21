@@ -33,6 +33,7 @@
 	</div>
 	<div class="col-md-5 col-md-offset-1">
 		<h3> Schools currently in the database</h3>
+		@if ($schools)
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -49,6 +50,9 @@
 				@endforeach
 			</tbody>
 		</table>
+		@else
+		<p>There are currently no schools in the database.</p>
+		@endif
 	</div>
 </div>
 @endsection

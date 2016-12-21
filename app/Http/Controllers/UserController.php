@@ -8,6 +8,9 @@ use View;
 use Hash;
 use Redirect;
 use Auth;
+use App\School;
+use App\Application;
+use App\Applicant;
 
 class UserController extends Controller
 {
@@ -68,7 +71,10 @@ class UserController extends Controller
 
 	public function home(Request $request){
 		if (Auth::check()){
-			return view('home_2');
+			$schoolCount = count(School::getSchools());
+			$applicationCount = count(Application::getApplications());
+			$applicantCount = count(Applicant::getApplicants());
+			return view('home_2', compact('schoolCount', 'applicationCount', 'applicantCount'));
 		}
 		
 		else {
