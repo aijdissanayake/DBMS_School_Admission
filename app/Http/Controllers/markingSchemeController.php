@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\PastPupilMarkingScheme;
 use App\ProximityMarkingScheme;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 class markingSchemeController extends Controller
 {

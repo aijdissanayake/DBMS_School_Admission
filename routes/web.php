@@ -50,8 +50,7 @@ Route::group(['middleware'=>"authX"], function(){
 
 		Route::post('pastpupil_record_added', 'PastPupilController@addNewRecord')->name('pastpupilRecordAdd');
 
-		Route::get('/addMarkingScheme',['as'=>'addMarkingScheme','uses'=>'markingSchemeController@viewMarkingSchemeTab'
-		]);
+		
 
 		Route::post('/addPastPupilMarkingScheme',['as'=>'addPastPupilMarkingScheme', 'uses'=>'markingSchemeController@addPastPupilMarkingScheme']);
 
@@ -60,50 +59,53 @@ Route::group(['middleware'=>"authX"], function(){
 
 	});
 
-		Route::get('allApplications', 'ApplicationController@viewAllApp')->name('viewAllApp');
+
+	Route::get('/addMarkingScheme',['as'=>'addMarkingScheme','uses'=>'markingSchemeController@viewMarkingSchemeTab'
+		]);
+	Route::get('allApplications', 'ApplicationController@viewAllApp')->name('viewAllApp');
 
 
 		// Data operator authorization
-		Route::get('/viewPxApplication/{application_id}',['as'=>'viewPxApplication', 'uses'=>'ApplicationController@viewPxApplication']);
+	Route::get('/viewPxApplication/{application_id}',['as'=>'viewPxApplication', 'uses'=>'ApplicationController@viewPxApplication']);
 
-		Route::get('add_pastpupil', ['as' => 'newPastPupil', 'uses' => function () {
-			return view('pastpupil.pastpupil_add');
-		}]);
+	Route::get('add_pastpupil', ['as' => 'newPastPupil', 'uses' => function () {
+		return view('pastpupil.pastpupil_add');
+	}]);
 
-		Route::get('add_pastpupil_record', ['as' => 'newPastPupilRecord', 'uses' => function () {
-			return view('pastpupil.pastpupil_record_add');
-		}]);
+	Route::get('add_pastpupil_record', ['as' => 'newPastPupilRecord', 'uses' => function () {
+		return view('pastpupil.pastpupil_record_add');
+	}]);
 
-		Route::post('pastpupil_added', 'PastPupilController@addNew')->name('pastpupilAdd');
+	Route::post('pastpupil_added', 'PastPupilController@addNew')->name('pastpupilAdd');
 
-		Route::post('pastpupil_record_added', 'PastPupilController@addNewRecord')->name('pastpupilRecordAdd');
+	Route::post('pastpupil_record_added', 'PastPupilController@addNewRecord')->name('pastpupilRecordAdd');
 
 
-		Route::get('/newApplication', ['as' => 'newApplication', 'uses' => function(){
-			$schools = School::getSchools();
-			$year = date("Y")+1;
-			return view('new_application.newApplication', compact('schools', 'year'));
-		}]);
+	Route::get('/newApplication', ['as' => 'newApplication', 'uses' => function(){
+		$schools = School::getSchools();
+		$year = date("Y")+1;
+		return view('new_application.newApplication', compact('schools', 'year'));
+	}]);
 
-		Route::post('/newApplication2', ['as' => 'newApplication2', 'uses' => 'ApplicationController@addNewApplication']);
+	Route::post('/newApplication2', ['as' => 'newApplication2', 'uses' => 'ApplicationController@addNewApplication']);
 
-		Route::post('/storePxApplication{application_id}', ['as' => 'storeApplication2', 'uses' => 'ApplicationController@addNewProximityApplication']);
+	Route::post('/storePxApplication{application_id}', ['as' => 'storeApplication2', 'uses' => 'ApplicationController@addNewProximityApplication']);
 
-		Route::get('/viewPPApplication/{application_id}',['as'=>'viewPPApplication', 'uses'=>'ApplicationController@viewPastPupilApplication']);
+	Route::get('/viewPPApplication/{application_id}',['as'=>'viewPPApplication', 'uses'=>'ApplicationController@viewPastPupilApplication']);
 
-		Route::post('/storePPApplication/{application_id}', ['as' => 'storeApplication1', 'uses' => 'ApplicationController@addNewPastPupilApplication']);
+	Route::post('/storePPApplication/{application_id}', ['as' => 'storeApplication1', 'uses' => 'ApplicationController@addNewPastPupilApplication']);
 
-		Route::get('/applicationlist', ['as' => 'list', 'uses' =>'SchoolController@viewList']);
+	Route::get('/applicationlist', ['as' => 'list', 'uses' =>'SchoolController@viewList']);
 
-		Route::get('/school/searchApps', 'SchoolController@searchSchoolApps')->name('searchSchoolApps');
+	Route::get('/school/searchApps', 'SchoolController@searchSchoolApps')->name('searchSchoolApps');
 
-		Route::get('/All/searchApps', 'ApplicationController@searchAllApps')->name('searchAllApps');
+	Route::get('/All/searchApps', 'ApplicationController@searchAllApps')->name('searchAllApps');
 
-		Route::get('/applicationsHome', ['as' => 'applications', 'uses' => function () {
-			$user_name = Illuminate\Support\Facades\Auth::user()->username;
-			return view('applications')->with('user_name',$user_name);
-		}]);
-		Route::post('/school/applicationlist/student', 'ApplicationController@viewApp')->name('studentApp');
+	Route::get('/applicationsHome', ['as' => 'applications', 'uses' => function () {
+		$user_name = Illuminate\Support\Facades\Auth::user()->username;
+		return view('applications')->with('user_name',$user_name);
+	}]);
+	Route::post('/school/applicationlist/student', 'ApplicationController@viewApp')->name('studentApp');
 
 	
 });
