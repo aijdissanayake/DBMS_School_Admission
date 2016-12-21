@@ -31,9 +31,11 @@
             <div class="collapse navbar-collapse" id="mobile_collapsed_navbar">
                 <ul class="nav navbar-nav">
                     <li><a href="{{route('home')}}" style="color: white">Home</a></li>
-                    <li><a href="{{route('applications')}}" style="color: white">Applications</a></li>
                     @if (Auth::user()->role == 1)
+                    <li><a href="{{route('viewAllApp')}}" style="color: white">Applications</a></li>
                     <li><a href="{{route('newSchool')}}" style="color: white">Schools</a></li>
+                    @else
+                    <li><a href="{{route('list')}}" style="color: white">Applications</a></li>
                     @endif
 
                     <li><a href="{{route('addMarkingScheme')}}" style="color: white">Marking Schemes</a></li>    
