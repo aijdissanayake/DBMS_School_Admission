@@ -6,13 +6,21 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Hash;
 
+use Illuminate\Support\Facades\Auth;
+
 use App\School;
+
+use App\User;
 
 class SchoolController extends Controller
 {
     public function viewList(){
 
     	$regNo = "477";
+        $user_name = Auth::user()->username;
+        if($user_name != 'admin' ){
+        $regNo = $user_name;
+        }
     	//create school instance
     	$school = new School();
     	//call methods in school.php model
@@ -40,6 +48,10 @@ class SchoolController extends Controller
         $field = $request['field'];
         $childName = $request['childName'];
         $regNo = '477';
+        $user_name = Auth::user()->username;
+        if($user_name != 'admin' ){
+        $regNo = $user_name;
+        }
         $school = new School();
 
         $searchResults = $school->searchSchoolApps($regNo, $childName, $field);
