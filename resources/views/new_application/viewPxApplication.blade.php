@@ -12,30 +12,30 @@
 	<div class="col-xs-12 col-md-6 col-md-offset-6">
 		<div class="col-xs-6">
 			<table class="table table-striped">
-				<tr><thead>
+				<tr><td>
 					Child's names:
-				</thead></tr>
-				<tr><thead>
+				</td></tr>
+				<tr><td>
 					Child's surname:
-				</thead></tr>
-				<tr><thead>
+				</td></tr>
+				<tr><td>
 					Applicant's full name:
-				</thead></tr>
-				<tr><thead>
+				</td></tr>
+				<tr><td>
 					School applied for:
-				</thead></tr>
-				<tr><thead>
+				</td></tr>
+				<tr><td>
 					Total marks attained:
-				</thead></tr>
-				<tr><thead>
+				</td></tr>
+				<tr><td>
 					No. of Years in Electoral Register:
-				</thead></tr>
-				<tr><thead>
+				</td></tr>
+				<tr><td>
 					No. of Schools passed:
-				</thead></tr>
-				<tr><thead>
+				</td></tr>
+				<tr><td>
 					Distance to Applied School:
-				</thead></tr>
+				</td></tr>
 			</table>
 		</div> 
 		<div class="col-xs-6">
