@@ -97,7 +97,8 @@ Route::group(['middleware'=>"authX"], function(){
 		Route::get('/All/searchApps', 'ApplicationController@searchAllApps')->name('searchAllApps');
 
 		Route::get('/applicationsHome', ['as' => 'applications', 'uses' => function () {
-			return view('applications');
+			$user_name = Illuminate\Support\Facades\Auth::user()->username;
+			return view('applications')->with('user_name',$user_name);
 		}]);
 		Route::post('/school/applicationlist/student', 'ApplicationController@viewApp')->name('studentApp');
 
