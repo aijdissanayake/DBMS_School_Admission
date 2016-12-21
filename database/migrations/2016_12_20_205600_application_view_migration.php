@@ -21,13 +21,13 @@ class ApplicationViewMigration extends Migration
 
         DB::statement("
             CREATE OR REPLACE VIEW application_past_pupil_schools AS
-                SELECT pp_name, applicant_id,school_reg_no,category_id,total_marks,name FROM (past_pupil_applications INNER JOIN applications ON past_pupil_applications.application_id = applications.id) INNER JOIN schools ON schools.reg_no = applications.school_reg_no
+                SELECT application_id,pp_name, applicant_id,school_reg_no,category_id,total_marks,name FROM (past_pupil_applications INNER JOIN applications ON past_pupil_applications.application_id = applications.id) INNER JOIN schools ON schools.reg_no = applications.school_reg_no
             ");
 
 
         DB::statement("
             CREATE OR REPLACE VIEW applicant_child AS
-                SELECT nic,full_name, nationality, applicants.religion AS app_religion,address,tel_no,district, denoted_name, surname, gender, children.religion AS child_religion , dob , medium FROM applicants INNER JOIN children ON applicants.nic = children.applicant_nic
+                SELECT nic,full_name, nationality, applicants.religion AS app_religion,address,tel_no,district, initials,denoted_name, surname, gender, children.religion AS child_religion , dob , medium FROM applicants INNER JOIN children ON applicants.nic = children.applicant_nic
         ");
 
 
