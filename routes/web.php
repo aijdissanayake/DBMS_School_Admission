@@ -13,6 +13,7 @@
 
 use App\School;
 use App\PastPupil;
+use App\PastPupilRecord;
 
 Route::get('/', ['as'=>'home', 'uses'=>'UserController@home']);
 
@@ -75,7 +76,8 @@ Route::group(['middleware'=>"authX"], function(){
 	}]);
 
 	Route::get('add_pastpupil_record', ['as' => 'newPastPupilRecord', 'uses' => function () {
-		return view('pastpupil.pastpupil_record_add');
+		$ppRecs = PastPupilRecord::getAllPastPupilRecords();
+		return view('pastpupil.pastpupil_record_add', compact('ppRecs'));
 	}]);
 
 	Route::post('pastpupil_added', 'PastPupilController@addNew')->name('pastpupilAdd');
