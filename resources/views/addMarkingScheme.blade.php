@@ -1,6 +1,75 @@
 @extends('layouts.app')
 
 @section('content')
+
+	<div class="row">
+			
+			<div class="col-md-6">
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">Current past pupil marking Scheme</h3>
+				  </div>
+				  <div class="panel-body">
+				    <ul class="list-group">
+					  <li class="list-group-item">
+					    <span class="badge">{{$pastPupilScheme[0]->name}}</span>
+					    Scheme name
+					  </li>
+					  <li class="list-group-item">
+					    <span class="badge">{{$pastPupilScheme[0]->edu_mult}}</span>
+					    Education level multiplier 
+					  </li>
+					  <li class="list-group-item">
+					    <span class="badge">{{$pastPupilScheme[0]->co_curr_mult}}</span>
+					    Co curricular level multiplier
+					  </li>
+					  <li class="list-group-item">
+					    <span class="badge">{{$pastPupilScheme[0]->ex_curr_mult}}</span>
+					    Extra curricular level multiplier
+					  </li>
+					  <li class="list-group-item">
+					    <span class="badge">{{$pastPupilScheme[0]->years_mult}}</span>
+					    Duration multiplier
+					  </li>
+					</ul>
+				  </div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">Current proximity marking Scheme</h3>
+				  </div>
+				  <div class="panel-body">
+				    <ul class="list-group">
+					  <li class="list-group-item">
+					    <span class="badge">{{$proximityScheme[0]->name}}</span>
+					    Scheme name
+					  </li>
+					  <li class="list-group-item">
+					    <span class="badge">{{$proximityScheme[0]->mult}}</span>
+					    Distance multiplier 
+					  </li>
+					  <li class="list-group-item">
+					    <span class="badge">{{$proximityScheme[0]->near_fact}}</span>
+					    Distance factor
+					  </li>
+					  <li class="list-group-item">
+					    <span class="badge">{{$proximityScheme[0]->year_mult}}</span>
+					    Duration multiplier
+					  </li>
+					  <li class="list-group-item">
+					    <span class="badge">{{$proximityScheme[0]->school_penalty}}</span>
+					    Nearby school penalty 
+					  </li>
+					</ul>
+				  </div>
+				</div>
+			</div>
+
+		</div>
+
+
 	<div class="row">
 		<div class="col-md-6">
 			<h3>Update past pupil catogory marking Scheme</h3>
@@ -28,7 +97,7 @@
 			  </div>
 
 			  
-			  <button type="submit" class="btn btn-default pull-right">Submit</button>
+			  <button type="submit" class="btn btn-default pull-right">Update</button>
 			</form>
 		</div>
 		<div class="col-md-6">
@@ -57,7 +126,7 @@
 			  </div>
 
 			  
-			  <button type="submit" class="btn btn-default pull-right">Submit</button>
+			  <button type="submit" class="btn btn-default pull-right">Update</button>
 			</form>
 		</div>
 		@if (session('status'))
@@ -67,39 +136,6 @@
 		@endif
 		</div>
 
-		<div class="row">
-			<div class="col-md-6">
-				<div class="panel panel-default">
-				  <div class="panel-heading">
-				    <h3 class="panel-title">Current Scheme</h3>
-				  </div>
-				  <div class="panel-body">
-				    <ul class="list-group">
-					  <li class="list-group-item">
-					    <span class="badge">{{$pastPupilScheme[0]->name}}</span>
-					    Scheme name
-					  </li>
-					  <li class="list-group-item">
-					    <span class="badge">{{$pastPupilScheme[0]->edu_mult}}</span>
-					    Education level multiplier 
-					  </li>
-					  <li class="list-group-item">
-					    <span class="badge">{{$pastPupilScheme[0]->co_curr_mult}}</span>
-					    Co curricular level multiplier
-					  </li>
-					  <li class="list-group-item">
-					    <span class="badge">{{$pastPupilScheme[0]->ex_curr_mult}}</span>
-					    Extra curricular level multiplier
-					  </li>
-					  <li class="list-group-item">
-					    <span class="badge">{{$pastPupilScheme[0]->years_mult}}</span>
-					    Duration multiplier
-					  </li>
-					</ul>
-				  </div>
-				</div>
-			</div>
 
-		</div>
 
 @endsection
