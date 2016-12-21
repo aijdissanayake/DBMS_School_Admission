@@ -177,7 +177,46 @@ class ApplicationController extends Controller
 	}
 
 	public function viewAllApp() {
-		$allApps = Application::viewAllApp();
-		return view('new_application.viewAllApplications', compact('allApps'));
+
+		$allProxApps = ProximityApplication::getAllApps();
+		$allPPApps = PastPupilApplication::getAllApps();
+
+		return view('all_applications')
+			->with('allProxApps',$allProxApps)
+			->with('allPPApps',$allPPApps);
 	}
+
+	public function searchAllApps(Request $request){
+
+        $field = $request['field'];
+        $childName = $request['childName'];
+
+        $searchResults = Application::searchAllApps($childName, $field);
+
+        if(count($searchResults)){
+            $results = [];
+
+
+            foreach ($searchResults as $searchResult) {
+                $name = $searchResult->denoted_name ." ". $searchResult->surname;
+                $id = $searchResult->id;
+                $details = array("name"=>$name , "id" => $id);
+                
+                array_push($results, $details);
+                }
+
+                $success = True;
+
+        }
+        
+        else{
+            $results = [];
+            $success = False;
+        }
+
+        return response()->json([
+                'results' => $results,
+                'success' => $success
+            ]);
+    }
 }

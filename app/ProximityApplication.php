@@ -30,7 +30,7 @@ class ProximityApplication extends Model
 		}
 	}
 
-	public function getAllApps(){
+	public static function getAllApps(){
 
 		$all = DB::select("SELECT application_id,initials,surname,total_marks FROM all_proximity_application_details");
 

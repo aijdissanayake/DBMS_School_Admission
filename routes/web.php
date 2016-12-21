@@ -94,6 +94,8 @@ Route::group(['middleware'=>"authX"], function(){
 
 		Route::get('/school/searchApps', 'SchoolController@searchSchoolApps')->name('searchSchoolApps');
 
+		Route::get('/All/searchApps', 'ApplicationController@searchAllApps')->name('searchAllApps');
+
 		Route::get('/applicationsHome', ['as' => 'applications', 'uses' => function () {
 			return view('applications');
 		}]);

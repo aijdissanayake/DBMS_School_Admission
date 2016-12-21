@@ -32,4 +32,25 @@ class Application extends Model
         $allApps = DB::select('SELECT * FROM applications_summary');
         return $allApps;
     }
+
+    public static function searchAllApps($childName, $field){
+
+        $guess = "%".$childName."%";
+
+        if($field = "surname"){
+
+        $applications = DB::select('SELECT applications.id AS id ,surname, denoted_name FROM applications INNER JOIN children ON applications.child_id = children.id where surname LIKE ? LIMIT 10', [$guess]);
+
+        return $applications;
+
+        }
+
+        elseif($field = "denoted_name"){
+
+            $applications = DB::select('SELECT initials, surname,denoted_name, total_marks FROM applications INNER JOIN children ON applications.child_id = children.id where denoted_name LIKE ? LIMIT 10', [$guess]);
+
+        return $applications;
+        }
+    
+    }
 }
