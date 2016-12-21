@@ -21,4 +21,12 @@ class Child extends Model
     	}
     }
 
+    public static function checkChildExists($applicant_nic, $childDenotedName, $childSurname){
+        $true = DB::select('SELECT * FROM children where (applicant_nic, denoted_name, surname) = (?,?,?)', [$applicant_nic, $childDenotedName, $childSurname]);
+
+        if ($true){
+            
+        }
+    }
+
 }

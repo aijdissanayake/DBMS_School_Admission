@@ -36,7 +36,7 @@
                     <li><a href="{{route('newSchool')}}" style="color: white">Schools</a></li>
                     @endif
                     <li><a href="#" style="color: white">Past Students</a></li>
-                    <li><a href="addMarkingScheme" style="color: white">Marking Schemes</a></li>    
+                    <li><a href="{{route('addMarkingScheme')}}" style="color: white">Marking Schemes</a></li>    
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
